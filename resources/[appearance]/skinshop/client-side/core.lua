@@ -322,7 +322,6 @@ function ApplyDataset(Data)
 
 	SetPedComponentVariation(Ped,4,Data["pants"]["item"],Data["pants"]["texture"],1)
 	SetPedComponentVariation(Ped,3,Data["arms"]["item"],Data["arms"]["texture"],1)
-	SetPedComponentVariation(Ped,5,Data["backpack"]["item"],Data["backpack"]["texture"],1)
 	SetPedComponentVariation(Ped,8,Data["tshirt"]["item"],Data["tshirt"]["texture"],1)
 	SetPedComponentVariation(Ped,9,Data["vest"]["item"],Data["vest"]["texture"],1)
 	SetPedComponentVariation(Ped,11,Data["torso"]["item"],Data["torso"]["texture"],1)
@@ -330,7 +329,8 @@ function ApplyDataset(Data)
 	SetPedComponentVariation(Ped,1,Data["mask"]["item"],Data["mask"]["texture"],1)
 	SetPedComponentVariation(Ped,10,Data["decals"]["item"],Data["decals"]["texture"],1)
 	SetPedComponentVariation(Ped,7,Data["accessory"]["item"],Data["accessory"]["texture"],1)
-
+	SetPedComponentVariation(Ped,5,Data["backpack"]["item"],Data["backpack"]["texture"],1)
+	
 	if Data["hat"]["item"] ~= -1 and Data["hat"]["item"] ~= 0 then
 		SetPedPropIndex(Ped,0,Data["hat"]["item"],Data["hat"]["texture"],1)
 	else
@@ -371,7 +371,7 @@ RegisterNUICallback("close",function(Data,Callback)
 	end
 
 	SetNuiFocus(false,false)
-	vRP.removeObjects()
+	vRP.Destroy()
 
 	Callback("Ok")
 end)
@@ -565,7 +565,7 @@ AddEventHandler("skinshop:setHat",function()
 			SetPedPropIndex(Ped,0,Dataset["hat"]["item"],Dataset["hat"]["texture"],1)
 		end
 
-		vRP.removeObjects()
+		vRP.Destroy()
 		Animation = false
 	end
 end)
@@ -587,7 +587,7 @@ AddEventHandler("skinshop:setMask",function()
 			SetPedComponentVariation(Ped,1,Dataset["mask"]["item"],Dataset["mask"]["texture"],1)
 		end
 
-		vRP.removeObjects()
+		vRP.Destroy()
 		Animation = false
 	end
 end)
@@ -609,7 +609,7 @@ AddEventHandler("skinshop:setGlasses",function()
 			SetPedPropIndex(Ped,1,Dataset["glass"]["item"],Dataset["glass"]["texture"],1)
 		end
 
-		vRP.removeObjects()
+		vRP.Destroy()
 		Animation = false
 	end
 end)
@@ -632,7 +632,7 @@ AddEventHandler("skinshop:setShirt",function()
 			SetPedComponentVariation(Ped,8,Dataset["tshirt"]["item"],Dataset["tshirt"]["texture"],1)
 		end
 	
-		vRP.removeObjects()
+		vRP.Destroy()
 		Animation = false
 	end
 end)
@@ -655,7 +655,7 @@ AddEventHandler("skinshop:setTorso",function()
 			SetPedComponentVariation(Ped,11,Dataset["torso"]["item"],Dataset["torso"]["texture"],1)
 		end
 
-		vRP.removeObjects()
+		vRP.Destroy()
 		Animation = false
 	end
 end)
@@ -677,7 +677,7 @@ AddEventHandler("skinshop:setArms",function()
 			SetPedComponentVariation(Ped,3,Dataset["arms"]["item"],Dataset["arms"]["texture"],1)
 		end
 
-		vRP.removeObjects()
+		vRP.Destroy()
 		Animation = false
 	end
 end)
@@ -699,7 +699,7 @@ AddEventHandler("skinshop:setVest",function()
 			SetPedComponentVariation(Ped,9,Dataset["vest"]["item"],Dataset["vest"]["texture"],1)
 		end
 
-		vRP.removeObjects()
+		vRP.Destroy()
 		Animation = false
 	end
 end)
@@ -725,7 +725,7 @@ AddEventHandler("skinshop:setPants",function()
 			SetPedComponentVariation(Ped,4,Dataset["pants"]["item"],Dataset["pants"]["texture"],1)
 		end
 
-		vRP.removeObjects()
+		vRP.Destroy()
 		Animation = false
 	end
 end)
@@ -747,7 +747,7 @@ AddEventHandler("skinshop:setShoes",function()
 			SetPedComponentVariation(Ped,6,Dataset["shoes"]["item"],Dataset["shoes"]["texture"],1)
 		end
 
-		vRP.removeObjects()
+		vRP.Destroy()
 		Animation = false
 	end
 end)

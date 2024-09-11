@@ -29,24 +29,25 @@ function Creative.updateClothes(Clothes)
 	local source = source
 	local Passport = vRP.Passport(source)
 	if Passport then
+		Wait(1500)
 		vRP.Query("playerdata/SetData",{ Passport = Passport, dkey = "Clothings", dvalue = json.encode(Clothes) })
 	end
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SKIN
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("skin",function(source,Message)
-	local Passport = vRP.Passport(source)
-	if Passport and Message[1] then
-		if vRP.HasGroup(Passport,"Admin") then
-			local ClosestPed = vRP.Source(Message[1])
-			if ClosestPed then
-				vRPC.Skin(ClosestPed,Message[2])
-				vRP.SkinCharacter(parseInt(Message[1]),Message[2])
-			end
-		end
-	end
-end)
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- RegisterCommand("skin",function(source,Message)
+-- 	local Passport = vRP.Passport(source)
+-- 	if Passport and Message[1] then
+-- 		if vRP.HasGroup(Passport,"Admin") then
+-- 			local ClosestPed = vRP.Source(Message[1])
+-- 			if ClosestPed then
+-- 				vRPC.Skin(ClosestPed,Message[2])
+-- 				vRP.SkinCharacter(parseInt(Message[1]),Message[2])
+-- 			end
+-- 		end
+-- 	end
+-- end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SKINSHOP:REMOVE
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -57,7 +58,7 @@ AddEventHandler("skinshop:Remove",function(Mode)
 	if Passport then
 		local ClosestPed = vRPC.ClosestPed(source,2)
 		if ClosestPed then
-			if vRP.HasService(Passport,"Policia") then
+			if vRP.HasService(Passport,"Police") then
 				TriggerClientEvent("skinshop:set"..Mode,ClosestPed)
 			end
 		end

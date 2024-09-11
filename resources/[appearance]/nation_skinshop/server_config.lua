@@ -54,8 +54,6 @@ end
 
 
 --------- CREATIVE V3 ------------
-
-
 function func.tryPayClothes(value)
     local source = source
     local Passport = vRP.Passport(source)
@@ -71,28 +69,7 @@ function func.tryPayClothes(value)
 end
 
 
--- Server -----------•  ************************* -----------------------------------------------------------------------------------------------------------------------
--- VROUPAS -- Server -----------•  ************************* ---------------------------------------------------------------------------------------------------------------------------------------------------
--- Server -----------•  ************************* -----------------------------------------------------------------------------------------------------------------------
-local player_customs = {}
-RegisterCommand('vroupas',function(source,args,rawCommand)
-    local user_id = vRP.getUserId(source)
-    local custom = vRPclient.getCustomization(source)
-    -- if vRP.hasPermission(user_id,"admin.permissao") then
-        if player_customs[source] then
-            player_customs[source] = nil
-            vRPclient._removeDiv(source,"customization")
-        else 
-            local content = ""
-            for k,v in pairs(custom) do
-                content = content..k.." => "..json.encode(v).."<br/>" 
-            end
 
-            player_customs[source] = true
-            vRPclient._setDiv(source,"customization",".div_customization{ margin: auto; padding: 4px; width: 250px; margin-top: 200px; margin-right: 50px; background: rgba(15,15,15,0.7); color: #ffff; font-weight: bold; }",content)
-        end
-    -- end
-end)
 
 
 

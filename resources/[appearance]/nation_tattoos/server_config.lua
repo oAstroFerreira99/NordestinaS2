@@ -8,10 +8,15 @@ Tunnel.bindInterface("nation_tattoos", func)
 function func.checkPermission(permission, src)
     local source = src or source
     local Passport = vRP.Passport(source)
-    if vRP.HasPermission(Passport,"Admin",{1,2,3}) and vRP.HasService(Passport,"Admin") then
-        return true
+    if type(permission) == "table" then
+        for i, perm in pairs(permission) do
+            if vRP.HasPermission(Passport, perm) then
+                return true
+            end
+        end
+        return false
     end
-    return 
+    return not permission or vRP.HasPermission(Passport, permission)
 end
 
 function func.saveChar(t)
@@ -20,18 +25,16 @@ function func.saveChar(t)
     if Passport then
         local char = getUserChar(Passport)
         char.tattoos, char.overlay = t.tattoos, t.overlay
-        -- vRP.setUData("playerdata/setUserdata",{ Passport = parseInt(Passport), key = "Tatuagens", value = json.encode(char,{indent=false}) })
-        vRP.setUData(Passport, "Tattoos", json.encode(char,{indent=false}))
+        Wait(1500)
+        vRP.Query("playerdata/SetData",{ Passport = parseInt(Passport), dkey = "Tatuagens", dvalue = json.encode(char,{indent=false}) })
     end
 end
 
-function func.tryPay(Amount)
+function func.tryPay(value)
     local source = source
     local Passport = vRP.Passport(source)
-    if Amount >= 0 then
-        if vRP.GetBank(source) > Amount then
-            vRP.RemoveBank(Passport, Amount)
-        -- if vRP.PaymentFull(Passport, Amount) or Amount == 0 then
+    if value >= 0 then
+        if vRP.PaymentFull(Passport, value) or value == 0 then
             return true
         end
     end
@@ -49,7 +52,7 @@ function func.getTattoos()
 end
 
 function getUserChar(Passport)
-    local data = vRP.UserData(Passport, "Tattoos")
+    local data = vRP.UserData(Passport, "Tatuagens")
     if next(data) ~= nil then
         local char = data
         if char then
@@ -58,4 +61,3 @@ function getUserChar(Passport)
     end
     return {}
 end
-

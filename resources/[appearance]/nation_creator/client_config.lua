@@ -10,8 +10,8 @@ nation_skinshop = true -- deixe true caso use o script nation_skinshop
 -- creatorCoords = vec3(563.33,-444.76,-69.66)
 -- creatorHeading = 269.3
 
-creatorCoords = vec3(-582.84,50.67,87.43) 
-creatorHeading = 90.71
+creatorCoords = vec3(562.79,-443.76,-69.66) 
+creatorHeading = 269.3
 
 
 spawnCoords = vec3(262.66,-1198.66,29.28)
@@ -259,19 +259,20 @@ end
 
 
 
-
 function initCreator()
+    --print("testew1")
     loadingPlayer(true)
-    TriggerEvent("SecondaryHud:disable")
+    TriggerEvent("hud:Active",false)
     TriggerEvent("nation_barbershop:stop")
     func._changeSession(GetPlayerServerId(PlayerId()))
     local ped = PlayerPedId()
+    --print("testew4")
     DoScreenFadeOut(500)
     Wait(500)
     teleport(ped, creatorCoords)
     SetEntityHeading(ped, creatorHeading)
     setGender("male")
-    SetEntityHealth(ped, GetPedMaxHealth(ped))
+    SetEntityHealth(ped, 200)
     resetCloths()
     SetFacialIdleAnimOverride(PlayerPedId(), "pose_normal_1", 0)
     Wait(1000)
@@ -286,16 +287,16 @@ function finishCreator()
     local ped = PlayerPedId()
     DoScreenFadeOut(500)
     Wait(1500)
-    -- cutScene()
+    --cutScene()
     teleport(ped, spawnCoords)
     SetEntityHeading(ped, spawnHeading)
     FreezeEntityPosition(ped, false)
-    SetEntityHealth(ped, GetPedMaxHealth(ped))
+    SetEntityHealth(ped, 200)
     func._updateLogin()
     func._changeSession(0)
     Wait(1000)
     DoScreenFadeIn(1000)
-    TriggerEvent("SecondaryHud:enable")
+    TriggerEvent("hud:Active",true)
 end
 
 RegisterNetEvent("nation_creator:finishClothes")
@@ -332,7 +333,7 @@ function setGender(gender)
         Citizen.Wait(100)   
     end
     local ped = PlayerPedId()
-    local currentHealth, currentMaxHealth, currentArmour = GetEntityHealth(ped), GetPedMaxHealth(ped), GetPedArmour(ped)
+    local currentHealth, currentMaxHealth, currentArmour = GetEntityHealth(ped), 200, GetPedArmour(ped)
     local weapons = vRP.getWeapons() or {}
     SetPlayerModel(PlayerId(), model)
     ped = PlayerPedId()
@@ -349,18 +350,17 @@ function setGender(gender)
 end
 
 
-
-
-
 function fclient.spawnPlayer(firstspawn)
+    ----print("auiq6")
     loginSpawn(not firstspawn)
 end
 
 
 function loadingPlayer(stats)
-    TriggerEvent("SecondaryHud:disable")
+    ----print("auiq5")
+    TriggerEvent("hud:Active",false)
     local ped = PlayerPedId()
-    SetEntityInvincible(ped,not stats)
+    SetEntityInvincible(ped,false)
     SetEntityVisible(ped,stats)
     LocalPlayer["state"]["Invisible"] = not stats
     FreezeEntityPosition(ped,not stats)
@@ -556,10 +556,12 @@ end
 
 RegisterNetEvent("spawn:setupChars")
 AddEventHandler("spawn:setupChars", function()
+    --print("auiq3")
     Wait(1000)
     while not loaded do
         Wait(1000)
     end
+    --print("auiq4")
     toggleMultiChar()
 end)
 
@@ -600,6 +602,7 @@ function selectCharacter(info)
         TriggerEvent("nation_barbershop:init", info.char)
         func._setPlayerTattoos(info.user_id)
     end
+    --print("testew2")
     loadingPlayer(info ~= nil)
 end
 
@@ -942,6 +945,7 @@ spawns = {
 
 
 function fclient.setPlayerLastCoords(coords)
+    --print("auiq2")
     if lastCoords then return end
     lastCoords = coords
     table.insert(spawns, { name = "Última Localização", coords = lastCoords })
@@ -1017,13 +1021,13 @@ end)
 
 
 CreateThread(function()
-    loadingPlayer(false) -- comentar caso nao queira que o player fique invisível quando spawna
+    --loadingPlayer(false) -- comentar caso nao queira que o player fique invisível quando spawna
     while true do
         if inMultiChar or inMenu or inLoginMenu or spawnned then
             break
         end
         local ped = PlayerPedId()
-        SetEntityInvincible(ped,true)
+        SetEntityInvincible(ped,false)
         SetEntityVisible(ped,false)
         FreezeEntityPosition(ped,true)
         Wait(10)
@@ -1035,7 +1039,7 @@ AddEventHandler("onClientResourceStart",function(resourceName)
 	if (GetCurrentResourceName() ~= resourceName) then
 		return
 	end
-	TriggerServerEvent("Queue:playerConnect")
+	--TriggerServerEvent("Queue:playerConnect")
 	ShutdownLoadingScreen()
     TriggerEvent("spawn:setupChars")
 end)

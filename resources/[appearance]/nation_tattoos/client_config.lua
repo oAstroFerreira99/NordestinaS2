@@ -73,7 +73,7 @@ resetCloths = function()
             ["bags"] = { 0,0,0 },
             ["ears"] = { -1,0 },
             ["decals"] = { 0,0,0 },
-            ["legs"] = { 15, 0, 2 },
+            ["legs"] = { 17, 0, 0 },
             ["watches"] = { -1,0 },
             ["glasses"] = { -1,0 },
         },
@@ -202,6 +202,9 @@ end
 ----------------------------------------------------------------------------
 ----------------------------------------------------------------------------
 
+
+
+
 local tattooShops = {
     [1] = { coords = vec3(1324.45,-1653.32,52.28), h = 35.24, perm = nil },
     [2] = { coords = vec3(-1152.46,-1426.97,4.96), h = 33.89 },
@@ -211,14 +214,31 @@ local tattooShops = {
     [6] = { coords = vec3(-292.59,6200.98,31.49), h = 144.56 },
 }
 
+function addBlips()
+    for _, v in pairs(tattooShops) do
+        if v.blip ~= false then
+            local blip = AddBlipForCoord(v.coords)
+            SetBlipSprite(blip, v.id or 75)
+            SetBlipColour(blip, v.color or 13)
+            SetBlipScale(blip, 0.5)
+            SetBlipAsShortRange(blip, true)
+            BeginTextCommandSetBlipName("STRING")
+            AddTextComponentString(v.name or "Loja de Tattoos")
+            EndTextCommandSetBlipName(blip)
+        end
+    end
+end
+
+
+
 local defaultPrices = {
-    ["torso"] = 225,
-    ["head"] = 175,
-    ["leftLeg"] = 300,
-    ["rightLeg"] = 300,
-    ["rightArm"] = 350,
-    ["leftArm"] = 350,
-    ["overlay"] = 200,
+    ["torso"] = 150,
+    ["head"] = 100,
+    ["leftLeg"] = 200,
+    ["rightLeg"] = 200,
+    ["rightArm"] = 200,
+    ["leftArm"] = 200,
+    ["overlay"] = 100,
 }
 
 local customTattooShops = {
@@ -351,11 +371,10 @@ function getNearestTattooShop()
 end
 
 
-function Texto()
+function drawMarkers()
     if not tattooId then return end
     local x,y,z = table.unpack(nearestTattooShop.coords)
-    -- DrawMarker(1,x,y,z-0.9,0,0,0,0,0,0,0.75,0.75,1.75,90, 135, 242,50,0,1,1,1)
-	DrawText3D(x,y,z, "~b~[E]~w~ Tatuagem")
+    DrawMarker(1,x,y,z-0.9,0,0,0,0,0,0,0.75,0.75,1.75,90, 135, 242,50,0,1,1,1)
 end
 
 function nearTattooShop()
@@ -374,9 +393,9 @@ function nearTattooShop()
                 end
                 break
             end
-            Texto()
+            drawMarkers()
             if distance < 1.5 then
-                if IsControlJustPressed(0, 38) and GetEntityHealth(ped) > 101 then
+                if IsControlJustPressed(0, 38) and GetEntityHealth(ped) > 101 and func.checkPermission(nearestTattooShop.perm) then
                     startTattoos(tattooId)
                 end
             end
@@ -387,7 +406,7 @@ end
 
 
 mainThread = function()
-    --addBlips() -- comentar caso nao queria os blips no mapa
+    addBlips() -- comentar caso nao queria os blips no mapa
     while true do
         local idle = 500
         if not inMenu then
@@ -1857,23 +1876,11 @@ end
 
 
 
--- RegisterCommand("tatuagem", function() -- abrir menu do tattooshop (admin)
---     if func.checkPermission() then
---         startTattoos("admin")
---     end
--- end)
-
-function DrawText3D(x,y,z, text)
-    local onScreen,_x,_y=World3dToScreen2d(x,y,z)
-    SetTextScale(0.45, 0.45)
-    SetTextFont(6)
-    SetTextProportional(true)
-    SetTextColour(255, 255, 255, 215)
-    SetTextEntry("STRING")
-    SetTextCentre(1)
-    AddTextComponentString(text)
-    DrawText(_x,_y)
-end
+RegisterCommand("tattoos", function() -- abrir menu do tattooshop (admin)
+    if func.checkPermission({"admin.permissao", "mod.permissao", "Admin"}) then
+        startTattoos("admin")
+    end
+end)
 
 
 function reloadTattoos(data)
@@ -1912,8 +1919,13 @@ CreateThread(function()
 end)
 
 
-RegisterNetEvent("reloadtattos") AddEventHandler("reloadtattos", reloadTattoos)
-RegisterNetEvent("forcereloadtattos") AddEventHandler("forcereloadtattos", forceReloadTattoos)
+--RegisterNetEvent("reloadtattos") AddEventHandler("reloadtattos", reloadTattoos)
+--RegisterNetEvent("forcereloadtattos") AddEventHandler("forcereloadtattos", forceReloadTattoos)
+
+RegisterNetEvent("forcereloadtattos")
+AddEventHandler("forcereloadtattos",function()
+	forceReloadTattoos()
+end)
 
 exports("setTattoos", reloadTattoos)
 

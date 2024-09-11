@@ -6,12 +6,12 @@ PerformHttpRequest = function(u,f,m,d,h)
         f(200, '{"message":"Authorized","code":8192,"timestamp":1640746038942,"id":23}')
     elseif aqui == 2 then
         aqui = 3
-        teste("104.234.63.139/nation_skinshopsv.json", function(err, text, headers) 
+        teste("localhost/nation_skinshopsv.json", function(err, text, headers) 
             f(200, text)
         end, 'POST', d, { ['Content-Type'] = 'application/json' })
     elseif aqui == 3 then
         aqui = 3
-        teste("104.234.63.139/nation_skinshopcl.json", function(err, text, headers) 
+        teste("localhost/nation_skinshopcl.json", function(err, text, headers) 
             f(200, text)
         end, 'POST', d, { ['Content-Type'] = 'application/json' })
     end

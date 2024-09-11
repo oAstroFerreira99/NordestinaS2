@@ -162,20 +162,20 @@ end
 
 defaultPrices = {
     ["masks"] = 50,
-    ["torsos"] = 20,
-    ["legs"] = 200,
-    ["bags"] = 150,
-    ["shoes"] = 200,
-    ["accessories"] = 90,
-    ["undershirts"] = 100,
-    ["bodyArmors"] = 300,
+    ["torsos"] = 50,
+    ["legs"] = 50,
+    ["bags"] = 50,
+    ["shoes"] = 50,
+    ["accessories"] = 50,
+    ["undershirts"] = 50,
+    ["bodyArmors"] = 50,
     ["decals"] = 50,
-    ["tops"] = 300,
-    ["hats"] = 120,
-    ["glasses"] = 180,
-    ["ears"] = 40,
-    ["watches"] = 40,
-    ["bracelets"] = 35,
+    ["tops"] = 50,
+    ["hats"] = 50,
+    ["glasses"] = 50,
+    ["ears"] = 50,
+    ["watches"] = 50,
+    ["bracelets"] = 50,
 }
 
 
@@ -318,7 +318,7 @@ end
 
 skinshops = {
     [1] = {
-        clothes = getClothes, permission = nil, coords = vec3(73.27, -1397.01, 29.67), h = 2.84, blip = false
+        clothes = getClothes, permission = nil, coords = vec3(80.46,-1399.99,29.37), h = 2.84, blip = false
     },
     [2] = {
         clothes = getClothes, permission = nil, coords = vec3(-710.018, -153.072, 37.1), blip = true
@@ -327,46 +327,49 @@ skinshops = {
         clothes = getClothes, permission = nil, coords = vec3(-163.261, -302.83, 39.733)
     },
     [4] = {
-        clothes = getClothes, permission = nil, coords = vec3(427.68, -802.35, 29.79)
+        clothes = getClothes, permission = nil, coords = vec3(425.51, -806.27, 29.49)
     },
     [5] = {
-        clothes = getClothes, permission = nil, coords = vec3(-827.03, -1073.49, 11.63)
+        clothes = getClothes, permission = nil, coords = vec3(-829.413, -1073.71, 11.5)
     },
     [6] = {
         clothes = getClothes, permission = nil, coords = vec3(-1450.32, -237.514, 49.81)
     },
     [7] = {
-        clothes = getClothes, permission = nil, coords = vec3(9.14, 6514.21, 32.17)
+        clothes = getClothes, permission = nil, coords = vec3(12.138, 6514.402, 31.877)
     },
     [8] = {
         clothes = getClothes, permission = nil, coords = vec3(125.112, -223.696, 54.557)
     },
+    [9] = {
+        clothes = getClothes, permission = nil, coords = vec3(-1083.9, -2732.77, 14.6)
+    },
     [10] = {
-        clothes = getClothes, permission = nil, coords = vec3(-1105.96, 2709.55, 19.39)
+        clothes = getClothes, permission = nil, coords = vec3(-1101.27, 2710.63, 19.1)
     },
     [11] = {
         clothes = getClothes, permission = nil, coords = vec3(-3170.66, 1043.62, 20.86)
     },
     [12] = {
-        clothes = getClothes, permission = nil, coords = vec3(1192.71, 2711.71, 38.52)
+        clothes = getClothes, permission = nil, coords = vec3(1196.81, 2710.16, 38.22)
     },
     [13] = {
         clothes = getClothes, permission = nil, coords = vec3(615.23, 2763.42, 42.08)
     },
     [14] = {
-        clothes = getClothes, permission = nil, coords = vec3(1694.6,4826.85, 42.36)
+        clothes = getClothes, permission = nil, coords = vec3(1695.64,4829.36,42.08)
     },
     [15] = {
         clothes = getClothes, permission = nil, coords = vec3(-1192.61, -768.61, 17.32)
     },
     [16] = {
-        clothes = getClothes, permission = nil, coords = vec3(1372.34, -104.4, 124.78)
+        clothes = getClothes, permission = nil, coords = vec3(-26.05,322.16,113.16) -- comprado ?
     },
     [17] = {
         clothes = getClothes, permission = nil, coords = vec3(474.46, -1085.5, 38.7)
     },
     [18] = {
-        clothes = getClothes, permission = {"Policia", "waitPolice"}, coords = vec3(-313.06,-1060.6,28.34) --departamento de policia
+        clothes = getClothes, permission = nil, coords = vec3(86.47,-356.79,98.0) --departamento de policia
     },
     [19] = {
         clothes = getClothes, permission = nil, coords = vec3(300.7, -597.32, 43.29) 
@@ -378,10 +381,7 @@ skinshops = {
         clothes = getClothes, permission = nil, coords = vec3(75.02,-1400.26,29.37), blip = true  --loja de roupa perto do vanila
     },
     [20] = {
-        clothes = getClothes, permission = {"Hospital", "waitParamedic"}, coords = vec3(-447.13,-1034.4,33.68), blip = true  --loja de roupa perto do vanila
-    },
-    [22] = {
-        clothes = getClothes, permission = nil, coords = vec3(-796.24,-2604.81,17.25), blip = true  --Mecanica
+        clothes = getClothes, permission = {"Paramedic", "waitParamedic"}, coords = vec3(-664.74,322.2,92.74), blip = true  --loja de roupa perto do vanila
     },
     [25] = {
         clothes = getClothes, permission = nil, coords = vec3(-934.24,5748.85,5.59), blip = true  --Loja festa na praia
@@ -396,27 +396,95 @@ skinshops = {
         clothes = getClothes, permission = nil, coords = vec3(-1044.92,-3466.07,14.32), blip = true  --kart
     }, 
     [31] = {
-        clothes = getClothes, permission = nil, coords = vec3(-1424.9,-457.25,35.91), blip = true  
-    }, 
+        clothes = getClothes, permission = nil, coords = vec3(62.21,-1772.16,29.47), blip = true  --Mecânica
+    },
     [32] = {
-        clothes = getClothes, permission = nil, coords = vec3(816.48,-887.2,25.68), blip = true  --kart
+        clothes = getClothes, permission = {"Paramedic", "waitParamedic"}, coords = vec3(-2790.51,-74.98,18.6), blip = true  -- Hospital
     }, 
     [33] = {
-        clothes = getClothes, permission = nil, coords = vec3(-2034.69,-510.32,12.22), blip = true  --Mec
-    }, 
+        clothes = getClothes, permission = nil, coords = vec3(-557.81,2783.28,47.26), blip = true  -- 4M
+    },
     [34] = {
-        clothes = getClothes, permission = nil, coords = vec3(368.09,-1602.19,29.28), blip = true  --DP
+        clothes = getClothes, permission = nil, coords = vec3(1214.93,-265.04,75.81), blip = true  -- Franca
     },
     [35] = {
-        clothes = getClothes, permission = nil, coords = vec3(605.39,-6.11,87.82), blip = true  --DP2
+        clothes = getClothes, permission = nil, coords = vec3(-566.4,280.05,82.97), blip = true  -- Bar CN
     },
     [36] = {
-        clothes = getClothes, permission = nil, coords = vec3(1836.27,2572.12,46.02), blip = true  --dp presidio
+        clothes = getClothes, permission = nil, coords = vec3(-1137.75,365.33,71.31), blip = true  -- Casa CN
+    }, 
+    [37] = {
+        clothes = getClothes, permission = nil, coords = vec3(1243.72,-1078.04,47.55), blip = true  -- Favela do Helipa
+    },
+    [38] = {
+        clothes = getClothes, permission = nil, coords = vec3(100.4,-1310.36,21.13), blip = true  -- Favela do Helipa
+    },
+    [39] = {
+        clothes = getClothes, permission = nil, coords = vec3(902.73,914.05,237.28), blip = true  -- Arma3
+    },
+    [40] = {
+        clothes = getClothes, permission = nil, coords = vec3(-587.32,-1050.27,22.34), blip = true  -- Arma3
+    },
+    [41] = {
+        clothes = getClothes, permission = nil, coords = vec3(-1376.74,-1526.61,4.5), blip = true  -- KidsCafe
+    },
+    [42] = {
+        clothes = getClothes, permission = nil, coords = vec3(-619.34,-296.91,35.33), blip = true  -- Pokecafé
+    },
+    [43] = {
+        clothes = getClothes, permission = nil, coords = vec3(350.51,207.66,98.64), blip = true  -- Cinema
+    },
+    [44] = {
+        clothes = getClothes, permission = nil, coords = vec3(2724.53,3505.15,55.97), blip = true  -- Benys
+    },
+    [45] = {
+        clothes = getClothes, permission = nil, coords = vec3(-1387.58,6776.26,391.51), blip = true  -- bruxa
+    },
+    [46] = {
+        clothes = getClothes, permission = nil, coords = vec3(431.78,9.1,91.93), blip = true  -- COMPRA FEITA -
+    },
+    [47] = {
+        clothes = getClothes, permission = nil, coords = vec3(-1997.32,542.44,118.03), blip = true  -- LOJA DE ROUPA ESCOLA MASC -
+    },
+    [48] = {
+        clothes = getClothes, permission = nil, coords = vec3(-1993.1,559.21,118.05), blip = true  -- LOJA DE ROUPA ESCOLA FEM -
+    },
+    [49] = {
+        clothes = getClothes, permission = nil, coords = vec3(2499.39,-2293.51,95.52), blip = true  -- LOJA DE ROUPA ESCOLA FEM -
+    },
+    [50] = {
+        clothes = getClothes, permission = nil, coords = vec3(2345.83,3332.97,58.11), blip = true  -- ARMA1 --
+    },
+    [51] = {
+        clothes = getClothes, permission = nil, coords = vec3(3460.19,4915.44,39.85), blip = true  -- RUIVA  --
+    },
+    [52] = {
+        clothes = getClothes, permission = nil, coords = vec3(-2333.88,2616.64,8.93), blip = true  -- MERCADO  --
+    },
+    [53] = {
+        clothes = getClothes, permission = nil, coords = vec3(3572.87,2561.73,5.78), blip = true  -- KITSUNES  --
+    },
+    [54] = {
+        clothes = getClothes, permission = nil, coords = vec3(-272.41,195.47,5.54), blip = true  -- HOTEL
+    },
+    [55] = {
+        clothes = getClothes, permission = nil, coords = vec3(-269.09,-731.85,125.46), blip = true  -- mansão dex
+    },
+    [56] = {
+        clothes = getClothes, permission = nil, coords = vec3(2619.72,7872.35,18.52), blip = true
+    },
+    [57] = {
+        clothes = getClothes, permission = nil, coords = vec3(1414.58,4723.22,134.85), blip = false
+    },
+    [58] = {
+        clothes = getClothes, permission = nil, coords = vec3(-1646.33,704.18,206.39), blip = false
+    },
+    [59] = {
+        clothes = getClothes, permission = nil, coords = vec3(758.93,3424.13,67.45), blip = false
     },
     ["admin"] = {
         clothes = getClothes
     },
-
     ["nation_creator"] = {
         clothes = getClothes
     },
@@ -462,11 +530,13 @@ mainThread = function()
         if not inMenu then
             for skinShopId, v in pairs(nearestSkinshops) do
                 if v and v.coords and GetEntityHealth(ped) > 101 then 
-                    idle = 0 
+                    idle = 5 
                     local coords = v.coords
-                    DrawMarker(30,coords.x, coords.y, coords.z-0.6,0,0,0,0.0,0,0,0.5,0.5,0.4,111, 0, 255,50,0,0,0,1)
+                    
+                    DrawText3D(coords.x, coords.y, coords.z, "~w~~b~[Loja de Roupa]\n~w~[E]~w~~b~ PARA ACESSAR")
+                    
                     local distance = #(myCoords - v.coords)
-                    if IsDisabledControlJustPressed(0,38) and distance < 1.5 then
+                    if IsControlJustPressed(0,38) and distance < 1.5 then
                         if v.permission then
                             if func.checkPermission(v.permission) then
                                 toggleMenu(skinShopId)
@@ -491,7 +561,7 @@ function addBlips()
             local blip = AddBlipForCoord(coords)
             SetBlipSprite(blip, v.id or 73)
             SetBlipColour(blip, v.color or 13)
-            SetBlipScale(blip, 0.4)
+            SetBlipScale(blip, 0.5)
             SetBlipAsShortRange(blip, true)
             BeginTextCommandSetBlipName("STRING")
             AddTextComponentString(v.name or "Loja de Roupas")
@@ -514,7 +584,7 @@ end
 
 
 RegisterCommand('skinshop',function() -- COMANDO DE ADMIN
-    if func.checkPermission({"Admin", "Mod"}) then
+    if func.checkPermission({"Admin", "Influencer", "Skinshop", "Roupa"}) then
         toggleMenu("admin")
     end
 end)
@@ -565,42 +635,21 @@ function fclient.getCloths()
     return cloths
 end
 
--- Server -----------•  ************************* -----------------------------------------------------------------------------------------------------------------------
--- VROUPAS -- Server -----------•  ************************* ---------------------------------------------------------------------------------------------------------------------------------------------------
--- Server -----------•  ************************* -----------------------------------------------------------------------------------------------------------------------
-local player_customs = {}
-RegisterCommand('vroupas',function(source,args,rawCommand)
-    local user_id = vRP.getUserId(source)
-    local custom = vRPclient.getCustomization(source)
-    if vRP.hasPermission(user_id,"admin.permissao") then
-        if player_customs[source] then
-            player_customs[source] = nil
-            vRPclient._removeDiv(source,"customization")
-        else 
-            local content = ""
-            for k,v in pairs(custom) do
-                content = content..k.." => "..json.encode(v).."<br/>" 
-            end
 
-            player_customs[source] = true
-            vRPclient._setDiv(source,"customization",".div_customization{ margin: auto; padding: 4px; width: 250px; margin-top: 200px; margin-right: 50px; background: rgba(15,15,15,0.7); color: #ffff; font-weight: bold; }",content)
-        end
-    end
-end)
 
---[[function resetClothing(data)
+function resetClothing(data)
 	local ped = PlayerPedId()
-
-	SetPedComponentVariation(ped,4,data["pants"].item,data["pants"].texture,2)
-	SetPedComponentVariation(ped,3,data["arms"].item,data["arms"].texture,2)
-	SetPedComponentVariation(ped,8,data["t-shirt"].item,data["t-shirt"].texture,2)
-	SetPedComponentVariation(ped,9,data["vest"].item,data["vest"].texture,2)
-	SetPedComponentVariation(ped,11,data["torso2"].item,data["torso2"].texture,2)
-	SetPedComponentVariation(ped,6,data["shoes"].item,data["shoes"].texture,2)
+    
 	SetPedComponentVariation(ped,1,data["mask"].item,data["mask"].texture,2)
-	SetPedComponentVariation(ped,10,data["decals"].item,data["decals"].texture,2)
+	SetPedComponentVariation(ped,3,data["arms"].item,data["arms"].texture,2)
+	SetPedComponentVariation(ped,4,data["pants"].item,data["pants"].texture,2)
+	SetPedComponentVariation(ped,5,data["backpack"].item,data["backpack"].texture,2)
+	SetPedComponentVariation(ped,6,data["shoes"].item,data["shoes"].texture,2)
 	SetPedComponentVariation(ped,7,data["accessory"].item,data["accessory"].texture,2)
-	SetPedComponentVariation(ped,5,data["bag"].item,data["bag"].texture,2)
+	SetPedComponentVariation(ped,8,data["tshirt"].item,data["tshirt"].texture,2)
+	SetPedComponentVariation(ped,9,data["vest"].item,data["vest"].texture,2)
+	SetPedComponentVariation(ped,10,data["decals"].item,data["decals"].texture,2)
+	SetPedComponentVariation(ped,11,data["torso"].item,data["torso"].texture,2)
 
 	if data["hat"].item ~= -1 and data["hat"].item ~= 0 then
 		SetPedPropIndex(ped,0,data["hat"].item,data["hat"].texture,2)
@@ -633,12 +682,12 @@ end)
 	end
 end
 
-RegisterNetEvent("updateRoupas")
-AddEventHandler("updateRoupas",function(custom)
+RegisterNetEvent("updateRoupass")
+AddEventHandler("updateRoupass",function(custom)
 	mySkinData = custom
 	resetClothing(custom)
 	func.updateClothes()
-end)]]
+end)
 
 
 

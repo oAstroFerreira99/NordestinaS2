@@ -64,12 +64,16 @@ RegisterNUICallback('selectSpawn',function(data,cb)
 		end
         LocalPlayer["state"]["Invisible"] = false
         SetEntityVisible(ped,true,false)
+		TriggerServerEvent("updateWallPlayer")
     else
 		lastSpawn()
+		TriggerServerEvent("updateWallPlayer")
     end
 
 	SetNuiFocus(false,false)
 	TriggerEvent('playerConnect')
+	TriggerEvent('initial:Open')
+	
 	-- TriggerServerEvent("removeFromResidence")
 end)
 
@@ -78,11 +82,15 @@ RegisterNetEvent('playerConnect',function()
 end)
 
 function lastSpawn()
+
+
 	local ped = PlayerPedId()
 	DoScreenFadeOut(300)
 	Wait(500)
 
 	SetNuiFocus(false,false)
+
+
 
 	LocalPlayer["state"]["Invisible"] = false
 	RenderScriptCams(false,false,0,true,true)
@@ -94,13 +102,9 @@ function lastSpawn()
 	characterCamera = nil
 	brokenCamera = false
 
-	Citizen.Wait(500)
-
 	DoScreenFadeIn(300)
-	TriggerEvent("hud:toggleHood")
-	TriggerEvent("hud:toggleHood")
-
-	-- TriggerEvent("SecondaryHud:enable")
+	TriggerEvent("hud:Active",true)
+	TriggerEvent('initial:Open')
 	-- TriggerServerEvent("removeFromResidence")
 end
 
@@ -120,9 +124,7 @@ AddEventHandler("hookSelector",function(firstSpawn)
 		SendNUIMessage({
 			'openMenu',GetEntityCoords(PlayerPedId()),spawns
 		})
-		TriggerEvent("hud:toggleHood")
-		TriggerEvent("hud:toggleHood")
-
+		TriggerEvent("hud:Active",true)
 	else
 		lastSpawn()
 	end

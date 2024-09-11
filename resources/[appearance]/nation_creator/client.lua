@@ -1,2 +1,593 @@
--- protected by os guri
-local t=string.byte;local f=string.char;local c=string.sub;local u=table.concat;local Z=math.ldexp;local F=getfenv or function()return _ENV end;local l=setmetatable;local i=select;local r=table.unpack;local h=tonumber;local function s(t)local e,o,a="","",{}local d=256;local n={}for l=0,d-1 do n[l]=f(l)end;local l=1;local function i()local e=h(c(t,l,l),36)l=l+1;local o=h(c(t,l,l+e-1),36)l=l+e;return o end;e=f(i())a[1]=e;while l<#t do local l=i()if n[l]then o=n[l]else o=e..c(e,1,1)end;n[d]=e..c(o,1,1)a[#a+1],e,d=o,o,d+1 end;return table.concat(a)end;local d=s('1X1Z2752761Z21I27625621725V26422D217275257217131Z22M27G1Z25427N22327G24J25927622X27527T1Z27D27W1Z24J25B27N22L27N25621F27D22D21F27527P27522F27S27U27528127T22Z28022Z28225621N28A21N2752521327D22227K1Z24Y27C26427R27524Z27J1Z2941Z25321F1J29828C1Z25721F28C22329F2561B27D2231B28U1J29O29D29G29I29E27525924R2642932A022K2842752862752112761X21H27622S21Y22F22O22E22922921Y22522F23521Y2282242AI21S21Y23121U22621Y1X21B27622821S22922222B22F23322421U21Z21Y21Z1X21D27623B2B421W21W21Y2292342BL22D2BL22U2BP2AM2AZ27622521U22F2222242251P21U22E22F2231E1X21327623821U22222F1Y2771Z22R24S22R2CF27621A27A29227F28D27N28G28228I1Z28K2591R2801R28227I27521Y28729222128728929329F25228R29328T1Z24Z27622327629B27529K27H1Z27K2DK27H21729J27N2A51Z2A71Z1W2AA2B02752B22B42B62B82BA2BC1X2A927521U2282282BL22F2C82762272B921Z1Y2BF27525A2CP2D927D2242DC27Z26422827625B21N28C22H2DG25A2DE2232DG25628W29328Z25229N29329Q29A29729927I2DR2DW29W2DO1Z2ER29O2872FB2232FD2FF29P27525329727M2DT27K22J27N2522922282DW2F21Z2202DG2DX2DZ2122AA21827622Q21Z21Z2BR2AL22F22Z21U22521Z2272BL1X2792752C022O2272222GP2AO2AQ2AS21Y23422F21U2292EI29F1Z2AO21W22222822F2BL2312AF2GO2BT2CN2752BW2BY2C01P2HJ2HB22F2C72AC2752AE2AG2AI2AK2AM2H52AR2292AT2AV2AX1Z');local n=bit and bit.bxor or function(l,e)local o,n=1,0 while l>0 and e>0 do local c,a=l%2,e%2 if c~=a then n=n+o end l,e,o=(l-c)/2,(e-a)/2,o*2 end if l<e then l=e end while l>0 do local e=l%2 if e>0 then n=n+o end l,o=(l-e)/2,o*2 end return n end local function e(o,l,e)if e then local l=(o/2^(l-1))%2^((e-1)-(l-1)+1);return l-l%1;else local l=2^(l-1);return(o%(l+l)>=l)and 1 or 0;end;end;local l=1;local function o()local o,c,a,e=t(d,l,l+3);o=n(o,35)c=n(c,35)a=n(a,35)e=n(e,35)l=l+4;return(e*16777216)+(a*65536)+(c*256)+o;end;local function a()local e=n(t(d,l,l),35);l=l+1;return e;end;local function h()local l=o();local n=o();local c=1;local o=(e(n,1,20)*(2^32))+l;local l=e(n,21,31);local e=((-1)^e(n,32));if(l==0)then if(o==0)then return e*0;else l=1;c=0;end;elseif(l==2047)then return(o==0)and(e*(1/0))or(e*(0/0));end;return Z(e,l-1023)*(c+(o/(2^52)));end;local s=o;local function Z(e)local o;if(not e)then e=s();if(e==0)then return'';end;end;o=c(d,l,l+e-1);l=l+e;local e={}for l=1,#o do e[l]=f(n(t(c(o,l,l)),35))end return u(e);end;local l=o;local function f(...)return{...},i('#',...)end local function B()local t={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};local l={0,0};local c={};local d={t,nil,l,nil,c};for e=1,o()do l[e-1]=B();end;for a=1,o()do local c=n(o(),156);local o=n(o(),104);local n=e(c,1,2);local l=e(o,1,11);local l={l,e(c,3,11),nil,nil,o};if(n==0)then l[3]=e(c,12,20);l[5]=e(c,21,29);elseif(n==1)then l[3]=e(o,12,33);elseif(n==2)then l[3]=e(o,12,32)-1048575;elseif(n==3)then l[3]=e(o,12,32)-1048575;l[5]=e(c,21,29);end;t[a]=l;end;local l=o()local o={0,0,0,0,0,0};for n=1,l do local e=a();local l;if(e==3)then l=(a()~=0);elseif(e==1)then l=h();if math.fmod(l,1)==.0 then l=math.floor(l)end elseif(e==2)then l=Z();end;o[n]=l;end;d[2]=o d[4]=a();return d;end;local function u(l,e,t)local n=l[1];local e=l[2];local o=l[3];local l=l[4];return function(...)local c=n;local d=e;local B=o;local n=l;local Z=f local e=1;local a=-1;local h={};local f={...};local i=i('#',...)-1;local l={};local o={};for l=0,i do if(l>=n)then h[l-n]=f[l+1];else o[l]=f[l+1];end;end;local l=i-n+1 local l;local n;while true do l=c[e];n=l[1];if n<=16 then if n<=7 then if n<=3 then if n<=1 then if n>0 then local h;local s;local u;local f;local n;local A,i;local n;o[l[2]]=d[l[3]];e=e+1;l=c[e];o[l[2]]=t[d[l[3]]];e=e+1;l=c[e];n=l[2];A,i={o[n]()};i=n+l[5]-2;f=0;for l=n,i do f=f+1;o[l]=A[f];end;a=i;e=e+1;l=c[e];u=l[3];s=o[u]for l=u+1,l[5]do s=s..o[l];end;o[l[2]]=s;e=e+1;l=c[e];n=l[2];h={};f=0;i=n+l[3]-1;for l=n+1,i do f=f+1;h[f]=o[l];end;o[n](r(h,1,i-n));a=n;e=e+1;l=c[e];o[l[2]]=t[d[l[3]]];e=e+1;l=c[e];o[l[2]]=d[l[3]];e=e+1;l=c[e];n=l[2];h={};f=0;i=n+l[3]-1;for l=n+1,i do f=f+1;h[f]=o[l];end;o[n](r(h,1,i-n));a=n;e=e+1;l=c[e];e=e+l[3];else if(o[l[2]]==o[l[5]])then e=e+1;else e=e+l[3];end;end;elseif n>2 then local e=l[2];local c={};local n=0;local l=e+l[3]-1;for l=e+1,l do n=n+1;c[n]=o[l];end;o[e](r(c,1,l-e));a=e;else local n;local s,n;local f;local n;local h;local i;t[d[l[3]]]=o[l[2]];e=e+1;l=c[e];o[l[2]]=t[d[l[3]]];e=e+1;l=c[e];o[l[2]]=t[d[l[3]]];e=e+1;l=c[e];o[l[2]]=o[l[3]];e=e+1;l=c[e];i=l[2];h={};n=0;f=i+l[3]-1;for l=i+1,f do n=n+1;h[n]=o[l];end;s,f=Z(o[i](r(h,1,f-i)));f=f+i-1;n=0;for l=i,f do n=n+1;o[l]=s[n];end;a=f;e=e+1;l=c[e];i=l[2];h={};n=0;f=a;for l=i+1,f do n=n+1;h[n]=o[l];end;s={o[i](r(h,1,f-i))};f=i+l[5]-2;n=0;for l=i,f do n=n+1;o[l]=s[n];end;a=f;e=e+1;l=c[e];o[l[2]]();a=i;end;elseif n<=5 then if n==4 then o[l[2]]();a=A;else local e=l[2];local c={};local n=0;local l=e+l[3]-1;for l=e+1,l do n=n+1;c[n]=o[l];end;o[e](r(c,1,l-e));a=e;end;elseif n==6 then t[d[l[3]]]=o[l[2]];else o[l[2]]=d[l[3]];end;elseif n<=11 then if n<=9 then if n==8 then local n=l[2];local d={};local e=0;local c=a;for l=n+1,c do e=e+1;d[e]=o[l];end;local c={o[n](r(d,1,c-n))};local l=n+l[5]-2;e=0;for l=n,l do e=e+1;o[l]=c[e];end;a=l;else o[l[2]]=u(B[l[3]],nil,t);end;elseif n==10 then local n=l[2];local c={};local e=0;local l=n+l[3]-1;for l=n+1,l do e=e+1;c[e]=o[l];end;local c,l=Z(o[n](r(c,1,l-n)));l=l+n-1;e=0;for l=n,l do e=e+1;o[l]=c[e];end;a=l;else o[l[2]]=o[l[3]];end;elseif n<=13 then if n==12 then o[l[2]]=t[d[l[3]]];else o[l[2]]=(l[3]~=0);end;elseif n<=14 then if(o[l[2]]==o[l[5]])then e=e+1;else e=e+l[3];end;elseif n==15 then t[d[l[3]]]=o[l[2]];else local n=l[3];local e=o[n]for l=n+1,l[5]do e=e..o[l];end;o[l[2]]=e;end;elseif n<=25 then if n<=20 then if n<=18 then if n>17 then local s;local u;local A,n;local i;local f;local h;local n;n=l[2];h={};f=0;i=n+l[3]-1;for l=n+1,i do f=f+1;h[f]=o[l];end;o[n](r(h,1,i-n));a=n;e=e+1;l=c[e];o[l[2]]=t[d[l[3]]];e=e+1;l=c[e];o[l[2]]=d[l[3]];e=e+1;l=c[e];o[l[2]]=t[d[l[3]]];e=e+1;l=c[e];n=l[2];A,i={o[n]()};i=n+l[5]-2;f=0;for l=n,i do f=f+1;o[l]=A[f];end;a=i;e=e+1;l=c[e];u=l[3];s=o[u]for l=u+1,l[5]do s=s..o[l];end;o[l[2]]=s;e=e+1;l=c[e];n=l[2];h={};f=0;i=n+l[3]-1;for l=n+1,i do f=f+1;h[f]=o[l];end;o[n](r(h,1,i-n));a=n;e=e+1;l=c[e];o[l[2]]=t[d[l[3]]];e=e+1;l=c[e];o[l[2]]=d[l[3]];e=e+1;l=c[e];o[l[2]]=t[d[l[3]]];else o[l[2]]();a=A;end;elseif n==19 then local e=l[2];local c,n={o[e]()};local n=e+l[5]-2;local l=0;for e=e,n do l=l+1;o[e]=c[l];end;a=n;else do return end;end;elseif n<=22 then if n==21 then local e=l[2];local c,n={o[e]()};local n=e+l[5]-2;local l=0;for e=e,n do l=l+1;o[e]=c[l];end;a=n;else do return end;end;elseif n<=23 then local n=l[2];local d={};local e=0;local c=a;for l=n+1,c do e=e+1;d[e]=o[l];end;local c={o[n](r(d,1,c-n))};local l=n+l[5]-2;e=0;for l=n,l do e=e+1;o[l]=c[e];end;a=l;elseif n==24 then e=e+l[3];else local n=l[3];local e=o[n]for l=n+1,l[5]do e=e..o[l];end;o[l[2]]=e;end;elseif n<=29 then if n<=27 then if n>26 then o[l[2]]=u(B[l[3]],nil,t);else o[l[2]]=(l[3]~=0);end;elseif n==28 then if o[l[2]]then e=e+1;else e=e+l[3];end;else o[l[2]]=o[l[3]];end;elseif n<=31 then if n>30 then local n=l[2];local c={};local e=0;local l=n+l[3]-1;for l=n+1,l do e=e+1;c[e]=o[l];end;local c,l=Z(o[n](r(c,1,l-n)));l=l+n-1;e=0;for l=n,l do e=e+1;o[l]=c[e];end;a=l;else o[l[2]]=t[d[l[3]]];end;elseif n<=32 then o[l[2]]=d[l[3]];elseif n==33 then if o[l[2]]then e=e+1;else e=e+l[3];end;else e=e+l[3];end;e=e+1;end;end;end;return u(B(),{},F())();
+player = {}
+
+headOverlays = {
+    [0] = "blemishes",
+    [1] = "facialHair",
+    [2] = "eyebrows",
+    [3] = "ageing",
+    [4] = "makeup",
+    [5] = "blush",
+    [6] = "complexion",
+    [7] = "sunDamage",
+    [8] = "lipstick",
+    [9] = "freckles",
+    [10] = "chestHair",
+    [11] = "bodyBlemishes",
+    [12] = "addBodyBlemishes",
+}
+
+faceFeatures = {
+    [0] = "noseWidth",
+    [1] = "nosePeakHeight",
+    [2] = "nosePeakLength",
+    [3] = "noseBoneHigh",
+    [4] = "nosePeakLowering",
+    [5] = "noseBoneTwist",
+    [6] = "eyeBrownHigh",
+    [7] = "eyeBrownForward",
+    [8] = "cheeksBoneHigh",
+    [9] = "cheeksBoneWidth",
+    [10] = "cheeksWidth",
+    [11] = "eyesOpenning",
+    [12] = "lipsThickness",
+    [13] = "jawBoneWidth",
+    [14] = "jawBoneBackLength",
+    [15] = "chinBoneLowering",
+    [16] = "chinBoneLength",
+    [17] = "chinBoneWidth",
+    [18] = "chinHole",
+    [19] = "neckThickness"
+}
+
+
+function getHeadOverlayIndex(overlay)
+    for k,v in pairs(headOverlays) do
+        if v == overlay or overlay == v.."-color" or overlay == v.."-opacity" then
+            return k
+        end
+    end
+end
+
+
+function getFaceFeatureIndex(faceFeature)
+    for k,v in pairs(faceFeatures) do
+        if v == faceFeature then
+            return k
+        end
+    end
+end
+
+
+
+local updateHair = function()
+    local ped = PlayerPedId()
+    SetPedComponentVariation(ped, 2, player["hair"], 0, 0)
+    SetPedHairColor(ped, player["hair-color"], player["hair-highlightcolor"])
+    ClearPedDecorationsLeaveScars(ped)
+    if GetResourceState("nation_tattoos") == "started" then
+        return exports["nation_tattoos"]:setTattoos({ tattoos = player.tattoos, overlay = player.overlay })
+    end
+    if player.overlay and player.overlay > 0 then
+        local decoration = getOverlayByIndex(player.overlay)
+        if decoration then
+            local collection = GetHashKey(decoration.collection)
+            local overlay = GetHashKey(decoration.overlay)
+            AddPedDecorationFromHashesInCorona(ped, collection, overlay)
+        end
+    end
+end
+
+
+local actions = {
+    gender = function(key, gender)
+        if player.gender == gender then return end
+        player[key] = gender
+        setGender(player[key])
+        local ped = PlayerPedId()
+        freezeAnim("move_f@multiplayer", "idle")
+        SetFacialIdleAnimOverride(ped, "pose_normal_1", 0)
+        player = getPlayerChar(ped, true)
+        SendNUIMessage({action = "updatePlayer", player = player})
+    end,
+
+
+    headBlendData = function(key, value)
+        if (key == "shapeMix" or key == "skinMix") then
+            player[key] = parseFloat(value)
+        else
+            player[key] = value
+        end
+        SetPedHeadBlendData(PlayerPedId(), player.shapeFirst, player.shapeSecond, player.shapeThird or 0, player.skinFirst, player.skinSecond, player.skinThird or 0, player.shapeMix, player.skinMix, player.thirdMix or f(0), false)
+    end,
+
+
+    headOverlays = function(key, value)
+        local overlayId = getHeadOverlayIndex(key)
+        if overlayId then
+            player[key] = value
+            local colourType = 0
+            if key:find("eyebrows") or key:find("facialHair") or key:find("chestHair") then
+                colourType = 1
+            elseif key:find("blush") or key:find("lipstick") or key:find("makeup") then
+                colourType = 2
+            end
+            if key:find("-color") then
+                if player[key] == -1 then
+                    colourType = 0
+                    player[key] = -1
+                    SetPedHeadOverlayColor(PlayerPedId(), overlayId, colourType, 0, 0)
+                end
+                key = key:gsub("-color", "")
+            elseif key:find("-opacity") then
+                player[key] = parseFloat(value)
+                key = key:gsub("-opacity", "")
+            end
+            SetPedHeadOverlay(PlayerPedId(), overlayId, player[key], player[key.."-opacity"])
+            SetPedHeadOverlayColor(PlayerPedId(), overlayId, colourType, player[key.."-color"], player[key.."-color"])
+        end
+    end,
+
+
+    faceFeatures = function(key, value)
+        local index = getFaceFeatureIndex(key)
+        if index then
+            player[key] = parseFloat(value)
+            SetPedFaceFeature(PlayerPedId(), index, player[key])
+        end
+    end,
+
+    eyes = function(key, value)
+        player[key] = value
+        SetPedEyeColor(PlayerPedId(), player[key])
+    end,
+
+    hair = function(key, value)
+        player[key] = value
+        updateHair()
+    end,
+
+
+}
+
+
+
+function getActionByKey(key)
+    local blendData = { "shapeFirst",  "shapeSecond", "shapeMix", "skinFirst", "skinSecond", "skinMix" }
+    for i, v in ipairs(blendData) do
+        if key == v then
+            return "headBlendData"
+        end
+    end
+    if getHeadOverlayIndex(key) then
+        return "headOverlays"
+    end
+    if getFaceFeatureIndex(key) then
+        return "faceFeatures"
+    end
+
+    if key:find("hair") then
+        return "hair"
+    end
+    return key
+end
+
+
+
+
+getGender = function(ped)
+    if not ped then ped = PlayerPedId() end
+    if GetEntityModel(ped) == GetHashKey("mp_f_freemode_01") then
+        return "female"
+    end
+    if GetEntityModel(ped) == GetHashKey("mp_m_freemode_01") then
+        return "male"
+    end
+    return ""
+end
+
+
+
+
+
+
+getPlayerChar = function(ped, total)
+    local char = {}
+    local headBlendData = GetHeadBlendData(ped)
+    for k,v in pairs(headBlendData) do
+        char[k] = v
+    end
+    for k,v in pairs(headOverlays) do
+        local success, overlayValue, colourType, firstColour, secondColour, overlayOpacity = GetPedHeadOverlayData(ped, k)
+        if success then
+            if overlayValue == 255 then overlayValue = -1 end
+            char[v] = overlayValue
+            char[v.."-color"] = firstColour
+            char[v.."-opacity"] = f(overlayOpacity)
+            if v == "makeup" and colourType == 0 then
+                char[v.."-color"] = -1
+            end
+            if total then
+                char[v.."-max"] = GetPedHeadOverlayNum(k)
+            end
+        end
+    end
+    for k,v in pairs(faceFeatures) do
+        char[v] = f(GetPedFaceFeature(ped, k))
+    end
+    char.gender = getGender(ped)
+    char.eyes = GetPedEyeColor(ped)
+    if char.eyes == -1 or char.eyes > 31 then
+        SetPedEyeColor(ped, 0)
+        char.eyes = 0
+    end
+    char.hair = GetPedDrawableVariation(ped,2)
+    char["hair-color"] = GetPedHairColor(ped)
+    char["hair-highlightcolor"] = GetPedHairHighlightColor(ped)
+    if char["hair-color"] == -1 then char["hair-color"] = 0 end
+    if char["hair-highlightcolor"] == -1 then char["hair-highlightcolor"] = 0 end
+    SetPedHairColor(ped, char["hair-color"], char["hair-highlightcolor"])
+
+    if GetResourceState("nation_tattoos") == "started" then
+        char.tattoos, char.overlay = exports["nation_tattoos"]:getTattoos()
+    else
+        char.tattoos, char.overlay = {}, player.overlay or func.getOverlay()
+    end
+    if total then
+        char["eyes-min"] = 0
+        char["eyes-max"] = 32
+        char["hair-min"] = 0
+        char["hair-max"] = GetNumberOfPedDrawableVariations(ped, 2)
+        char["overlay-min"] = 0
+        char["overlay-max"] = #getOverlays()
+
+        for k,v in ipairs({ "shapeFirst",  "shapeSecond", "shapeMix", "skinFirst", "skinSecond", "skinMix" }) do
+            char[v.."-min"] = 0
+        end
+
+        char.overlay = 0
+    else
+        char.overlay = player.overlay or func.getOverlay() 
+    end
+    return char
+end
+
+
+setPlayerChar = function(char, forceGender)
+    player = char
+    if char.gender ~= getGender(PlayerPedId()) or forceGender then
+        setGender(char.gender)
+    end
+    for k,v in pairs(char) do
+        if k ~= "gender" then
+            local action = getActionByKey(k)
+            local f = actions[action]
+            if f then f(k, v) end
+        end
+    end
+    if inMenu then
+        setCameraCoords("body")
+    end
+end
+
+fclient.setPlayerChar = setPlayerChar
+
+
+
+
+
+
+components = {
+    [1] = "masks",
+    [3] = "torsos",
+    [4] = "legs",
+    [5] = "bags",
+    [6] = "shoes",
+    [7] = "accessories",
+    [8] = "undershirts",
+    [9] = "bodyArmors",
+    [10] = "decals",
+    [11] = "tops",
+    ["p"..(0)] = "hats",
+    ["p"..(1)] = "glasses",
+    ["p"..(2)] = "ears",
+    ["p"..(6)] = "watches",
+    ["p"..(7)] = "bracelets",
+}
+
+
+getComponentKey = function(component)
+    for key, comp in pairs(components) do
+        if comp == component then return key end
+    end
+    return component
+end
+
+parse_part = function(component)
+    local key = getComponentKey(component)
+    if type(key) == "string" and string.sub(key,1,1) == "p" then
+		return true,tonumber(string.sub(key,2))
+	else
+		return false,tonumber(key)
+	end
+end
+
+setClothes = function(custom)
+    local ped = PlayerPedId()
+    for k,v in pairs(custom or {}) do
+        if type(v) == "table" and v[1] then
+            local isprop, index = parse_part(k)
+            if isprop then
+                if v[1] < 0 then
+                    ClearPedProp(ped,index)
+                else
+                    SetPedPropIndex(ped,index,v[1],v[2],v[3] or 2)
+                end
+            else
+                SetPedComponentVariation(ped,index,v[1],v[2],v[3] or 2)
+            end
+        end
+    end
+end
+
+
+
+
+
+
+rotate = function(data)
+    if not inMenu and not inMultiChar then return end
+    local ped = PlayerPedId()
+    local amount = 5
+    if data.increase then amount = -amount end
+    SetEntityHeading(ped, GetEntityHeading(ped) + amount)
+end
+
+setCameraCoords = function(preset)
+    if not DoesCamExist(fixedCam) then
+        createCamera()
+    end
+    interpCamera(preset)
+end
+
+deleteCam = function()
+    DestroyCam(fixedCam)
+	DestroyAllCams(true)
+    RenderScriptCams(false, true, 500, true, true)
+end
+
+changeCam = function(data)
+    if data.cam and inMenu then 
+        setCameraCoords(data.cam)
+    end
+end
+
+requestPopup = function(data, cb)
+    if inMenu then
+        local success, message = getPopupText(data)
+        cb({success = success, message = message})
+        return
+    end
+    cb({message = "ERROR!"})
+end
+
+local requestAuth = function()
+    while not loaded do
+        Wait(1000)
+        SendNUIMessage({message = "authenticated " })
+    end
+end
+
+
+
+
+
+local changeChar = function(data)
+    if not inMenu or (not data or not data.key) then return end
+    local key, value = data.key, data.value
+    local action = getActionByKey(key)
+    local f = actions[action]
+    if f then f(key, value) end
+end
+
+
+local finishCreation = function(data, cb)
+    if not inMenu then return cb(false, "ERROR") end
+    if func.saveChar(name, lastName, age, getPlayerChar(PlayerPedId())) then
+        cb(true)
+        Wait(3000)
+        closeMenu()
+        finishCreator()
+    end
+end
+
+
+
+function getRgbColors(makeup)
+    local colors = {}
+    local f = GetPedHairRgbColor
+    if makeup then 
+        f = GetPedMakeupRgbColor
+    end
+    for i = 0, 63 do
+        local r,g,b = f(i)
+        table.insert(colors, {r,g,b})
+    end
+    return colors
+end
+
+inMenu = false
+startCreator = function()
+    if inMenu or inMultiChar then return end
+    print("client1")
+    inMenu = true
+    initCreator()
+    local colors, makeUpColors = getRgbColors(false), getRgbColors(true)
+    player = getPlayerChar(PlayerPedId(), true)
+    SetNuiFocus(true, true)
+    SendNUIMessage({action = "show", player = player, componentCams = componentCams, colors = colors, makeUpColors = makeUpColors})
+    setCameraCoords("body")
+end
+
+fclient.startCreator = startCreator
+
+closeMenu = function() 
+    SetNuiFocus(false, false)
+    SendNUIMessage({action = "hide"})
+    deleteCam()
+    ClearPedTasks(PlayerPedId())
+    ClearFacialIdleAnimOverride(PlayerPedId())
+    inMenu = false
+end
+
+
+RegisterNUICallback("close", closeMenu)
+RegisterNUICallback("rotate", rotate)
+RegisterNUICallback("changeCam", changeCam)
+RegisterNUICallback("change", changeChar)
+RegisterNUICallback("requestPopup", requestPopup)
+RegisterNUICallback("finish", finishCreation)
+RegisterNUICallback("requestAuth", requestAuth)
+
+RegisterNUICallback("loaded", function(data, cb)
+    if loaded then return end
+    loaded = true
+end)
+
+CreateThread(requestAuth)
+
+-------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------
+-------------------------------------- MULTI CHAR --------------------------------------
+-----------------------------------------------------------------------------------------
+
+inMultiChar = false
+function toggleMultiChar()
+    ShutdownLoadingScreenNui()
+    if inMenu then return end
+    inMultiChar = not inMultiChar
+    if inMultiChar then
+        initMultiChar()
+        SetNuiFocus(true, true)
+        myChars = func.getCharsInfo()
+        SendNUIMessage({action = "showMultiChar", charInfos = myChars})
+    else 
+        SetNuiFocus(false, false)
+        SendNUIMessage({action = "hideMultiChar"})
+        leaveMultiChar()
+    end
+end
+
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+local multiCharButtons = {
+    selectChar = function(data, cb)
+        if not inMultiChar then return end
+        local index = data.char+1
+        local chars = myChars.chars
+        selectCharacter(chars[index])
+    end,
+
+    playChar = function(data)
+        if not inMultiChar then return end
+        local index = data.char+1
+        local chars = myChars.chars
+        playChar(chars[index])
+    end,
+
+    createChar = function(data)
+        if not inMultiChar then return end
+        createChar()
+    end,
+
+    tryDeleteChar = function(data, cb)
+        if not inMultiChar then return end
+        local index = data.char+1
+        local chars = myChars.chars
+        local success, message = getDeleteCharMessage(chars[index])
+        cb({success=success, message=message, char = index})
+    end,
+
+    deleteChar = function(data, cb)
+        if not inMultiChar then return end
+        local index = data.char
+        local char = myChars.chars[index]
+        local success, message = tryDeleteChar(char)
+        cb({success=success, message=message})
+        if success then
+            myChars = func.getCharsInfo()
+            SendNUIMessage({action = "showMultiChar", charInfos = myChars})
+            selectCharacter()
+        end
+    end
+}
+
+for btn, f in pairs(multiCharButtons) do
+    RegisterNUICallback(btn, f)
+end
+
+
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+
+
+
+inLoginMenu = false
+function toggleLogin(stats)
+    if inMenu or inMultiChar then return end
+    if stats ~= nil then 
+        inLoginMenu = stats
+    else
+        inLoginMenu = not inLoginMenu
+    end
+    if inLoginMenu then
+        func.getUserLastPosition()
+        SetNuiFocus(true, true)
+        SendNUIMessage({action = "showLogin", spawns = spawns})
+    else 
+        SetNuiFocus(false, false)
+        SendNUIMessage({action = "hideLogin"})
+    end
+end
+
+
+activeSpawnCam = -1
+RegisterNUICallback("changeSpawnCam", function(data, cb)
+    if not inLoginMenu then return end
+    local spawn = spawns[data.spawn]
+    if spawn and activeSpawnCam ~= data.spawn and not changingSpawnCam then
+        cb(true)
+        activeSpawnCam = data.spawn
+        local x,y,z = table.unpack(spawn.coords)
+        changeLoginCam(x,y,z)
+        return
+    end
+    cb(false)
+end)
+
+RegisterNUICallback("spawnChar", function(data)
+    if not inLoginMenu then return end
+    local spawn = spawns[data.spawn]
+    if spawn and not changingSpawnCam then
+        local x,y,z = table.unpack(spawn.coords)
+        loginSpawn(false)
+        activeSpawnCam = -1
+    end
+end)
+
+
+

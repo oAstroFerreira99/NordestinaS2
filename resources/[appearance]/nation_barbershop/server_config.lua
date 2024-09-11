@@ -105,21 +105,10 @@ function setPlayerTattoos(source, user_id)
     local data = vRP.getUData(user_id,"Tatuagens")
     if data and data ~= "" then 
         tattoos = data
-        TriggerClientEvent("tattoos:setTattoos", source, tattoos)
         TriggerClientEvent("tattoos:Apply", source, tattoos)
     end
-    TriggerClientEvent("reloadtattos", source)
-    TriggerEvent('dpn_tattoo:setPedServer',source)
-    TriggerClientEvent("nyoModule:tattooUpdate",source, false)
 end
 
-function func.setPlayerTattoos()
-    local source = source
-    local user_id = vRP.getUserId(source)
-    if user_id then
-        setPlayerTattoos(source, user_id)
-    end
-end
 
 function getGender(user_id)
     local datatable = vRP.getUserDataTable(user_id) or vRP.getUData(user_id, "Datatable") or {}

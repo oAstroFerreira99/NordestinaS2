@@ -55,15 +55,6 @@ function func.saveChar(name, lastName, age, char, id)
             sex = "F"
         end
         vRP.Query("nation_creator/update_user_first_spawn",{ user_id = user_id, firstname = lastName, name = name, age = age, sex = sex })
-
-        -- DISCORDHOOK LISBOA
-        local lisboadas = "https://discord.com/api/webhooks/890781724705955880/TGOoEGHbFGsuO4Yla4EzTiCmY3CaVBzD0oEJeFltt7G8olEItn6HfDAZa9XCTyorhWJX"
-        local Identity = vRP.Identity(user_id)
-        local infoAccount = vRP.Account(Identity["license"])
-        PerformHttpRequest(lisboadas,function(err,text,headers) end,"POST",json.encode({
-            content = infoAccount["discord"].." #"..user_id.." "..name.." "..lastName
-        }),{ ["Content-Type"] = "application/json" })
-
     end
     TriggerClientEvent("nation_barbershop:init", source, char)
     local skin = "mp_m_freemode_01"
@@ -73,6 +64,13 @@ function func.saveChar(name, lastName, age, char, id)
     vRP.SkinCharacter(user_id, skin)
     vRP.playerDropped(source,"Atualizando Personagem.")
     vRP.CharacterChosen(source,user_id,nil)
+    local Identity = vRP.Identities(source)
+    local Account = vRP.Account(Identity)
+    if Account["discord"] then
+        TriggerEvent("Discord","Rename"," "..Account["discord"].." "..user_id.." "..name.." "..lastName.."", 0, true)
+    else
+        print("^7[^1!^7] O Passaporte ^3"..user_id.."^7 nao tem discord ^3Vinculado^7")
+    end
     return true
 end
 
@@ -130,10 +128,10 @@ end
 
 
 function setPlayerTattoos(source, user_id)
-    TriggerClientEvent("tattoos:Apply", source, getUserTattoos(user_id))
-    TriggerClientEvent("reloadtattos", source)
-    TriggerEvent('dpn_tattoo:setPedServer', source)
-    TriggerClientEvent("nyoModule:tattooUpdate", source, false)
+    --TriggerClientEvent("tattoos:Apply", source, getUserTattoos(user_id))
+    TriggerClientEvent("forcereloadtattos", source)
+    --TriggerEvent('dpn_tattoo:setPedServer', source)
+    --TriggerClientEvent("nyoModule:tattooUpdate", source, false)
 end
 
 
@@ -312,7 +310,13 @@ function func.playChar(info)
         --print(vRP.getUserId(source), vRP.Passport(source))
         local user_id = vRP.Passport(source)
         local ip = GetPlayerEP(source) or '0.0.0.0'
-        vRP.sendLog('joins', '[ID]: '..user_id..' \n[IP]: '..ip..' \n[======ENTROU NO SERVIDOR======]'..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S"), true)
+        local Identity = vRP.Identities(source)
+        local Account = vRP.Account(Identity)
+        if Account["discord"] then
+            TriggerEvent("Discord","Rename"," "..Account["discord"].." "..info.user_id.." "..vRP.Identity(info.user_id).name.." "..vRP.Identity(info.user_id).name2.."", 0, true)
+        else
+            print("^7[^1!^7] O Passaporte ^3"..info.user_id.."^7 nao tem discord ^3Vinculado^7")
+        end
         playerSpawn(info.user_id, source, true)
     end
 end
@@ -357,7 +361,8 @@ function getPlayerSteam(source)
     return vRP.Identities(source)
 end
 
-RegisterCommand("char", function(source) -- setar as customizações dnv (tipo bvida)
+
+--[[RegisterCommand("char", function(source) -- setar as customizações dnv (tipo bvida)
     local user_id = vRP.getUserId(source)
     local char = getUserChar(user_id, source)
     if char then
@@ -366,7 +371,7 @@ RegisterCommand("char", function(source) -- setar as customizações dnv (tipo b
         setPlayerTattoos(source, user_id)
         fclient._setClothing(source, getUserClothes(user_id))
     end
-end)
+end)]]
 
 --[[RegisterCommand('resetchar',function(source, args) -- COMANDO DE ADMIN PARA RESETAR PERSONAGEM
     if func.checkPermission({"admin.permissao", "mod.permissao", "Admin"}, source) then
@@ -388,25 +393,29 @@ end)
 end)]]
 
 RegisterCommand('resetchar',function(source, args) -- COMANDO DE ADMIN PARA RESETAR PERSONAGEM
-    -- if vRP.HasGroup(Passport,"Admin") then
+    local source = source
+    local Passport = vRP.Passport(source)
+    if vRP.HasGroup(Passport,"Admin", 1) then
         if args[1] then 
             local id = tonumber(args[1])
             if id then
                 local src = vRP.Source(id)
-                if src and vRP.Request(source, "Deseja resetar o id "..id.." ?", "Sim", "Não") then
+                if src and vRP.Request(source, "Deseja resetar o id "..id.." ?") then
                     fclient._startCreator(src)
+                    TriggerEvent("Discord","Resetchar",">>> **Passaporte:** #"..Passport.."\n**Resetou:** #"..id.."\n**Horário:** "..os.date("%H:%M:%S"),16777215)
+
                 end
             end
-        elseif 
-            vRP.Request(source, "Deseja resetar seu personagem ?", "Sim", "Não") then
+        elseif vRP.Request(source, "Deseja resetar seu personagem ?") then
             fclient._startCreator(source)
+            TriggerEvent("Discord","Resetchar",">>> **Passaporte:** #"..Passport.."\n**Resetou sí mesmo**\n**Horário:** "..os.date("%H:%M:%S"),16777215)
         end
-    -- end
+    end
 end)
 
 RegisterCommand('spawn',function(source) -- COMANDO DE ADMIN PARA SIMULAR O SPAWN
     local Passport = vRP.Passport(source)
-    if vRP.HasGroup(Passport,"Admin") or not vRP.getUserId(source) then
+    if vRP.HasGroup(Passport,"Admin", 3) or not vRP.getUserId(source) then
         if multiCharacter then
             vRP.playerDropped(source,"Trocando Personagem.")
             Wait(1000)
@@ -427,6 +436,19 @@ AddEventHandler("nation:resetplayer",function(source,user_id)
     end
 end)
 
+RegisterServerEvent("wine:debugPlayer")
+AddEventHandler("wine:debugPlayer",function(source)
+    if source ~= nil then
+    local user_id = vRP.Passport(source)
+    local char = getUserChar(user_id, source)
+        if char then
+            fclient._setPlayerChar(source, char, true)
+            TriggerClientEvent("nation_barbershop:init", source, char)
+            setPlayerTattoos(source, user_id)
+            fclient._setClothing(source, getUserClothes(user_id))
+        end
+    end
+end)
 
 
 
