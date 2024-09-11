@@ -148,32 +148,26 @@ AddEventHandler("farmer:Fruitman",function(Number)
 			if Passport and not Active[Passport] then
 				Active[Passport] = true
 
-				local Ped = GetPlayerPed(source)
-				if GetSelectedPedWeapon(Ped) == GetHashKey("WEAPON_HATCHET") then
-					local Amount = math.random(3,5)
-					local Items = { "acerola","banana","guarana","tomato","passion","grape","tange","orange","apple","strawberry","coffee2" }
-					local Select = math.random(#Items)
+				local Amount = math.random(3,5)
+				local Items = { "acerola","banana","guarana","tomato","passion","grape","tange","orange","apple","strawberry","coffee2" }
+				local Select = math.random(#Items)
 
+				if vRP.ConsultItem(Passport,"WEAPON_HATCHET",1) then
+					local Amount = math.random(2)
 					if (vRP.InventoryWeight(Passport) + itemWeight(Items[Select]) * Amount) <= vRP.GetWeight(Passport) then
-						vRPC.playAnim(source,false,{"lumberjackaxe@idle","idle"},true)
-						TriggerClientEvent("Progress",source,"Colhendo",11000)
-						Objects[Number]["Time"] = GlobalState["Work"] + 25
+						vRPC.createObjects(source,"melee@large_wpn@streamed_core","ground_attack_on_spot","prop_tool_pickaxe",1,18905,0.10,-0.1,0.0,-92.0,260.0,5.0)
+						TriggerClientEvent("Progress",source,"Mineirando",10000)
+						Objects[Number]["Time"] = GlobalState["Work"] + 15
 						Player(source)["state"]["Buttons"] = true
 						Player(source)["state"]["Cancel"] = true
-
 						local timeProgress = 10
 
 						repeat
-							if timeProgress ~= 10 then
-								Wait(400)
-							end
-
-							Wait(700)
-							TriggerClientEvent("sounds:Private",source,"lumberman",0.1)
+							Wait(1000)
 							timeProgress = timeProgress - 1
 						until timeProgress <= 0
 
-						Wait(400)
+						Wait(1000)
 
 						TriggerClientEvent("farmer:Remover",-1,Number,Objects[Number]["Time"])
 						vRP.GenerateItem(Passport,Items[Select],Amount,true)
@@ -185,14 +179,15 @@ AddEventHandler("farmer:Fruitman",function(Number)
 						TriggerClientEvent("Notify",source,"vermelho","Mochila cheia.",5000)
 					end
 				else
-					TriggerClientEvent("Notify",source,"amarelo","<b>Machado</b> não encontrado.",5000)
+					TriggerClientEvent("Notify",source,"amarelo","<b>Picareta</b> não encontrada.",5000)
 				end
 
 				Active[Passport] = nil
 			end
 		end
 	end
-end)
+	end)
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- MINERMAN
 -----------------------------------------------------------------------------------------------------------------------------------------

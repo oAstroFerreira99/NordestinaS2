@@ -1,152 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
-    <link rel="stylesheet" href="./styles.css" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@600;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>hypex</title>
+  <script type="module" crossorigin src="./js/index.js"></script>
+  <link rel="stylesheet" href="./css/index.css">
 </head>
+<body>
+<div id="cpx"></div>
+<header class="logo-container2">
+    <img src="images/logo.png" />
+</header>
 
-<body class="h-screen w-screen overflow-hidden text-white p-8 grid-cols-3 grid-rows-2">
-    <div></div>
-
-    <div class="justify-self-center"><img src="./assets/images/logo.png" alt="" /></div>
-
-    <div class="justify-self-end flex flex-col items-end justify-start gap-2 relative">
-        <div class="flex items-center justify-center gap-4">
-            <div class="info">
-                <img src="./assets/icons/diamond.svg" class="info__icon" />
-                <div class="info__content">
-                    <p id="coins">100</p>
-                </div>
-            </div>
-            <div class="info">
-                <img src="./assets/icons/person.svg" class="info__icon" />
-                <div class="info__content">
-                    <p id="id">15</p>
-                </div>
-            </div>
-        </div>
-        <div class="info">
-            <img src="./assets/icons/radio.svg" class="info__icon" />
-            <div class="info__content">
-                <p id="radio">DESLIGADO</p>
-            </div>
-        </div>
-        <div class="info">
-            <img src="./assets/icons/mic.svg" class="info__icon" />
-            <div class="info__content" id="mic">
-                <div class="h-5 bg-green-500/45 w-2 rounded"></div>
-                <div class="h-5 bg-green-500/10 w-2 rounded"></div>
-                <div class="h-5 bg-white/45 w-2 rounded"></div>
-                <div class="h-5 bg-white/10 w-2 rounded"></div>
-            </div>
-        </div>
-
-        <div class="absolute bottom-10 right-0 flex flex-col items-end justify-center" id="weapon">
-            <img src="./assets/images/weapon.svg" class="h-10" id="weapon-img" style="filter: saturate(0) brightness(200%)" />
-            <div class="w-full bg-gradient-to-r from-transparent to-black/45 rounded-full flex items-center justify-end gap-x-1 py-1 px-4 mt-2">
-                <img src="./assets/icons/ammo.svg" />
-                <p class="font-extrabold text-white" id="weapon-ammo">42 / 120</p>
-            </div>
-        </div>
-    </div>
-
-    <div></div>
-    <div></div>
-
-    <div class="justify-self-end place-self-end relative">
-        <div class="flex items-end justify-end gap-x-2 absolute bottom-0 right-0" id="normal-hud">
-            <div class="flex flex-col items-center justify-end gap-y-2">
-                <div class="stats stats_large purple-gradient -z-10" style="--_width: 100%" id="armor">
-                    <img src="./assets/icons/armor.svg" />
-                </div>
-                <div class="stats stats_large red-gradient" style="--_width: 50%" id="health">
-                    <img src="./assets/icons/heart.svg" />
-                </div>
-            </div>
-            <div class="flex flex-col items-center justify-end gap-y-2">
-                <div class="stats pink-gradient" style="--_height: 25%" id="oxygen">
-                    <img src="./assets/icons/oxygen.svg" />
-                </div>
-                <div class="stats yellow-gradient" style="--_height: 95%" id="stamina">
-                    <img src="./assets/icons/stamina.svg" />
-                </div>
-                <div class="stats blue-gradient" style="--_height: 0%" id="water">
-                    <img src="./assets/icons/water.svg" />
-                </div>
-                <div class="stats orange-gradient" style="--_height: 45%" id="food">
-                    <img src="./assets/icons/food.svg" />
-                </div>
-            </div>
-        </div>
-
-        <div class="w-[242px] aspect-1 absolute bottom-0 right-2" id="vehicle-hud">
-            <svg class="speedometer speedometer-mask !bottom-12">
-					<circle cx="105" cy="210" r="105"></circle>
-					<circle id="rpm" class="speedometer-fill" cx="105" cy="210" r="105"></circle>
-				</svg>
-
-            <div class="scale-110 absolute bottom-12 left-1/2 -translate-x-1/2">
-                <svg class="speedometer">
-						<circle class="circle-1" cx="105" cy="210" r="105"></circle>
-						<circle class="circle-2" cx="105" cy="210" r="105"></circle>
-						<circle class="circle-3" cx="105" cy="210" r="105"></circle>
-						<circle id="engine" class="circle-1 circle-orange" cx="105" cy="210" r="105"></circle>
-						<circle id="gas" class="circle-2 circle-red" cx="105" cy="210" r="105"></circle>
-						<circle id="nitro" class="circle-3 circle-blue" cx="105" cy="210" r="105"></circle>
-					</svg>
-            </div>
-
-            <img src="./assets/icons/engine.svg" class="absolute -left-8 bottom-12" />
-            <img src="./assets/icons/nitro.svg" class="absolute left-1/2 bottom-[calc(50%+3.5rem)] -translate-x-1/2 -translate-y-1/2" />
-            <img src="./assets/icons/gas.svg" class="absolute w-5 -right-6 bottom-12" />
-
-            <img src="./assets/icons/seatbelt.png" class="absolute w-5 right-14 bottom-12" id="seatbelt" />
-            <img src="./assets/icons/door.png" class="absolute w-5 right-8 bottom-12" id="door" />
-
-            <div class="flex flex-col items-center justify-center absolute left-1/2 -translate-x-1/2 bottom-14 text-center gap-y-2">
-                <span class="font-digitalNumbers text-4xl" id="speed">225</span>
-                <small class="uppercase">km/h</small>
-            </div>
-
-            <div class="flex items-center justify-center gap-x-2 absolute left-1/2 -translate-x-1/2 bottom-0">
-                <div class="stats stats-lg red-gradient" style="--_height: 50%" id="health-vehicle">
-                    <img src="./assets/icons/heart.svg" />
-                </div>
-                <div class="stats stats-lg purple-gradient" style="--_height: 73%" id="armor-vehicle">
-                    <img src="./assets/icons/armor.svg" />
-                </div>
-                <div class="stats stats-lg orange-gradient" style="--_height: 45%" id="food-vehicle">
-                    <img src="./assets/icons/food.svg" />
-                </div>
-                <div class="stats stats-lg blue-gradient" style="--_height: 0%" id="water-vehicle">
-                    <img src="./assets/icons/water.svg" />
-                </div>
-                <div class="stats stats-lg yellow-gradient" style="--_height: 95%" id="stamina-vehicle">
-                    <img src="./assets/icons/stamina.svg" />
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="progress-container">
-        <svg class="progress">
-				<circle cx="50" cy="50" r="25"></circle>
-				<circle id="progress-circle" class="progress-fill" cx="50" cy="50" r="25"></circle>
-			</svg>
-        <img src="./assets/icons/clock.svg" class="progress-image" />
-    </div>
-
-    <script src="./script.js"></script>
 </body>
-
+<script>
+    if (!("GetParentResourceName" in window)) {
+        document.body.style.backgroundColor = "gray";
+    }
+</script>
 </html>
