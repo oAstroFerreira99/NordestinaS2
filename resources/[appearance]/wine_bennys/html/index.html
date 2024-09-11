@@ -1,0 +1,558 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Base live - Bennys</title>
+    <meta name="description" content="www.etstore.com.br">
+    <meta name="author" content="Harry Network">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/EasyLogicColorPicker.css">
+    <link rel="stylesheet" href="css/styles.css?v=1.0">
+    <link rel="stylesheet" href="fonts/stylesheet.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="shadow" style="display: none;"></div>
+    <div class="shadow2" style="display: none;"></div>
+
+    <!--LS CUSTOM-->
+    <div class="lscustom">
+        <!--Infos-->
+        <div class="infos">
+            <div class="h3">
+                <h3>Aprimoramentos e Personalização</h3>
+            </div>
+
+            <div class="modificacao">
+                <div class="opcoes"></div>
+            </div>
+            <div class="s">
+                <h3>Finalização de pedido</h3>
+            </div>
+            <div class="finalizacao">
+                <p class="finalizar">Deixe sua criatividade no controle e personalize tudo o que desejar aqui na Bennys! Desempenho e elegância em um só lugar.</p>
+            </div>
+            <div class="opt">
+                <div class="valores">
+                    <img src="img/icons/dollar.png" class="icone">
+                    <div>
+                        <p class="valor">0.000</p>
+                    </div>
+                </div>
+                <div class="orcamento">
+                    <img src="img/icons/calculator.png" class="icone">
+                    <div>
+                        <p class="fazerorca">Realizar orçamento</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--menu-->
+        <div class="menu">
+            <div class="opcao">
+                <img src="img/buttons/esc.png">
+                <div>
+                    <p>sair e cancelar</p>
+                </div>
+            </div>
+            <div class="opcao"><img src="img/buttons/H.png">
+                <div>
+                    <p>Camera Livre</p>
+                </div>
+            </div>
+            <div class="opcao"><img src="img/buttons/c.png">
+                <div>
+                    <p>Ver carrinho</p>
+                </div>
+            </div>
+            <div class="opcao"><img src="img/buttons/backspace.png">
+                <div>
+                    <p>Voltar</p>
+                </div>
+            </div>
+        </div>
+
+        <!--reparar-->
+        <div class="reparar">
+            <div class="custom">
+                <div class="reparo">
+                    <div class="blocoimg">
+                        <img src="img/icons/settings.png">
+                    </div>
+                    <div class="blocotexto">
+                        <p>Repare o veiculo antes de prosseguir com os aprimoramentos!
+                        </p>
+                        <div class="botao">
+                            <button>Reparar veiculo</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!--opcoes de peças-->
+        <div class="options">
+            <div class="options_title">Lista de Opcionais
+                <div class="preco">
+                    <div class="valor">
+                        <div>
+                            <img src="img/icons/dollar.png">
+                        </div>
+                        <div>
+                            <p class="optionprice">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="options_container" id="options_container" tabindex="-1"></div>
+        </div>
+
+        <!--cores-->
+        <div class="cores" style="display: none;">
+            <div class="h3">
+                <h3>Personalização</h3>
+            </div>
+            <colorpicker>
+                <div class="no-close"></div>
+                <div class="fodase">
+                    <input id="colorPicker" type="color">
+                    <button>Confirmar</button>
+                </div>
+            </colorpicker>
+        </div>
+
+        <!--tunning-->
+        <div class="tunning" style="display: none;">
+            <div class="titulo">
+                <div class="h3">
+                   <h3>Tuning especial</h3>
+                </div>
+            </div>
+            <section>
+                <div class="values-field">
+                    <div class="field-area">
+                        <label for="boost">PROPULSÃO</label>
+                        <input type="range" id="boost" class="styled-slider slider-progress" oninput="boostval.value=value" min="0.1" max="0.30" value="0.25" step="0.01">
+                        <output id="boostval">0.25</output>
+                    </div>
+
+                    <div class="field-area">
+                        <label for="fuelmix">COMBINAÇÃO DE COMBUSTÍVEL</label>
+                        <input type="range" id="fuelmix" class="styled-slider slider-progress" oninput="fuelmixval.value=value" min="1" max="1.6" value="1.3" step="0.01">
+                        <output id="fuelmixval">1.3</output>
+                    </div>
+
+                    <div class="field-area">
+                        <label for="braking">FRENAGEM</label>
+                        <input type="range" id="braking" class="styled-slider slider-progress" oninput="brakingval.value=value" max="1" value="0.5" step="0.05">
+                        <output id="brakingval">0.5</output>
+                    </div>
+
+                    <div class="field-area">
+                        <label for="brakeforce">FORÇA DE FRENAGEM</label>
+                        <input type="range" id="brakeforce" class="styled-slider slider-progress" oninput="brakeforceval.value=value" max="1.5" value="1.4" step="0.05">
+                        <output id="brakeforceval">1.4</output>
+                    </div>
+
+                    <div class="field-area">
+                        <label for="drivetrain">SISTEMA DE TRAÇÃO</label>
+                        <input type="range" id="drivetrain" class="styled-slider slider-progress" oninput="drivetrainval.value=value" max="0.75" value="0.5" step="0.05" >
+                        <output id="drivetrainval">0.5</output>
+                    </div>
+                </div>
+
+                <div class="button-field">
+                    <button id="reset">Padrão</button>
+                    <button id="save">Salvar</button>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!--tablet mecanico-->
+    <div class="painel" style="display: none;">
+        <div class="titulo">
+            <div class="h3">
+                <h3>Painel de serviços</h3>
+            </div>
+        </div>
+
+        <div class="container--navigation">
+            <div class="item--link active" data-page="home">Inicio</div>
+            <div class="item--link" data-page="budgets">Orçamentos
+                <div class="item--notification budget-count">6</div>
+            </div>
+            <div class="item--link" data-page="helps">Chamados
+                <div class="item--notification help-count">2</div>
+            </div>
+        </div>
+
+        <div class="servicos home">
+            <div class="bloco">
+                <div>
+                    <div class="titulo">
+                        <h3>Mecanico</h3>
+                    </div>
+                    <div class="conteudo mecanico">
+                        <div class="mec">
+                            <h2 class="name">Harry Network</h2>
+                            <h4 class="cargo">Mecânico lider</h4>
+                            <!-- <div class="ponto">
+                                <button class="baterponto">Bater ponto</button>
+                            </div> -->
+                        </div>
+                        <div class="mecanica">
+                            <div class="status">
+                                <h4>Status da mecânica</h4>
+                                <h4 class="setstatus">3/6</h4>
+                            </div>
+                            <div class="lista">
+                                <div class="mecanicos">
+                                    <div class="nome">
+                                        <h6>HARRY NETWORK</h6>
+                                    </div>
+                                    <div class="emservico">
+                                        <p>Em serviço</p>
+                                    </div>
+                                </div>
+                                <div class="mecanicos">
+                                    <div class="nome">
+                                        <h6>HARRY NETWORK</h6>
+                                    </div>
+                                    <div class="foraservico">
+                                        <p>Fora de serviço</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bloco">
+                <div>
+                    <div class="titulo">
+                        <h3>Anuncios</h3>
+                    </div>
+                    <div class="conteudo Anuncios">
+                        <div class="titulo">
+                            <h4>Avisos</h4>
+                            <div>
+                                <div class="anunciar">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </div>
+                                <form class="sendannounce">
+                                    <input placeholder="Escrever um Aviso">
+                                </form>
+                            </div>
+                            <div class="aviso">
+                                <div class="quadro">
+                                    <div class="anuncio">
+                                        <p>Todo mundo vai receber aumento aeeeee, aumento de hrs de trabalho.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="titulo" style="margin-top: 2px;">
+                        <h3>Chamados recebidos</h3>
+                    </div>
+                    <div class="conteudo chamados">
+                        <div class="titulochamado">
+                            <h4>Chamados</h4>
+                            <div class="todoschamados">
+                                <div class="chamado">
+                                    <div class="nome">
+                                        <h6>HARRY NETWORK</h6>
+                                    </div>
+                                    <div class="aceito">
+                                        <p>Aceito</p>
+                                    </div>
+                                    <div class="desc">
+                                        <p>alo zezin minha roda ta estourada</p>
+                                    </div>
+                                </div>
+                                <div class="chamado">
+                                    <div class="nome">
+                                        <h6>HARRY NETWORK</h6>
+                                    </div>
+                                    <div class="negado">
+                                        <p>Negado</p>
+                                    </div>
+                                    <div class="desc">
+                                        <p>alo zezin minha roda ta estourada</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="servicos budgets" style="display: none;">
+
+            <div class="bloco">
+                <div>
+                    <div class="titulo">
+                        <h3>Orçamentos</h3>
+                    </div>
+                    <div class="conteudo orcamentos">
+                        <div class="tituloorc">
+                            <h4>Pendentes, Realizados e Cancelados</h4>
+                            <div class="orca">
+                                <div class="lista">
+                                    <div class="opcao">
+                                        <div class="nome">
+                                            <h6>HARRY NETWORK</h6>
+                                        </div>
+                                        <div class="valor">
+                                            <p class="valores">Valor:</p>
+                                            <p class="numeros">4.000</p>
+                                        </div>
+                                        <div class="pendente">
+                                            <p>Pendente</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="lista">
+                                    <div class="opcao">
+                                        <div class="nome">
+                                            <h6>HARRY NETWORK</h6>
+                                        </div>
+                                        <div class="valor">
+                                            <p class="valores">Valor:</p>
+                                            <p class="numeros">4.000</p>
+                                        </div>
+                                        <div class="realizado">
+                                            <p>Realizado</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="servicos helps" style="display: none;">
+
+            <div class="bloco">
+                <div>
+                    <div class="titulo">
+                        <h3>Chamados</h3>
+                    </div>
+                    <div class="conteudo orcamentos">
+                        <div class="tituloorc">
+                            <h4>Pendentes, Aceitos e Negados</h4>
+                            <div class="orca">
+                                <div class="lista">
+                                    <div class="opcao">
+                                        <div class="nome" style="width: 20%;">
+                                            <h6>HARRY NETWORK</h6>
+                                        </div>
+                                        <div class="mensagem">
+                                            Preciso de ajuda com meu pneu furado
+                                        </div>
+                                        <div class="pendente">
+                                            <p>Pendente</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="lista">
+                                    <div class="opcao">
+                                        <div class="nome" style="width: 20%;">
+                                            <h6>HARRY NETWORK</h6>
+                                        </div>
+                                        <div class="mensagem">
+                                            Preciso de ajuda com meu pneu furado
+                                        </div>
+                                        <div class="realizado">
+                                            <p>Realizado</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--carrinho-->
+    <div class="finalorcamento">
+        <div class="titulo">
+            <div class="h3">
+                <h3>Orçamento</h3>
+            </div>
+        </div>
+        <div class="titulop">
+            <h3>Peça/Produto</h3>
+            <h3>Custo</h3>
+        </div>
+        <div class="carrinho"></div>
+        <div class="total">
+            <h3>Total: 0</h3>
+        </div>
+        <div class="botoes">
+            <div class="voltar">
+                <h3>Voltar</h3>
+            </div>
+            <div class="finalizar">
+                <h3>Finalizar</h3>
+            </div>
+        </div>
+    </div>
+
+    <!--Finalizar pedido-->
+    <div class="comprarcarrinho">
+        <div class="titulo">
+            <div class="h3">
+                <h3>Área de compra</h3>
+            </div>
+        </div>
+        <div class="produtos">
+            <h3>Peça/Produto</h3>
+            <h3>Custo</h3>
+        </div>
+        <div class="listaproduto"></div>
+        <div class="aviso">
+            <h3>Uma vez finalizado o orçamento não será possível reverter.</h3>
+        </div>
+        <div class="comprar">
+            <h3>Comprar - R$ 0</h3>
+        </div>
+        <div class="voltar">
+            <h3>Voltar</h3>
+        </div>
+    </div>
+
+    <!--painel player-->
+    <div class="painelplayer" style="display: none;" id="painelplayer">
+        <div class="titulo">
+            <div class="h3">
+                <h3>Extras do Veiculo</h3>
+            </div>
+        </div>
+
+        <div class="container--navigation">
+            <div class="item--link active" data-page="wheels">Configuração de rodas</div>
+            <div class="item--link" data-page="colors">Configuração de cores</div>
+        </div>
+
+        <div class="bloco page wheels">
+            <div>
+                <div class="titulo">
+                    <h3>Customizar Pneus</h3>
+                </div>
+                <div class="pneus">
+                    <div class="opcao">
+                        <div class="bloco">
+                            <h4>Suspensao a Ar</h4>
+                        </div>
+                        <div class="bloco">
+                            <ul>
+                                <li class="range">
+                                    <input type="range" min="-0.09" max="0.09" value="0" step="0.001" oninput="suspension.value=value" class="slider" id="suspensionchange">
+                                    <output id="suspension">0</output>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="opcao">
+                        <div class="bloco">
+                            <h4>Rodas Dianteiras</h4>
+                        </div>
+                        <div class="bloco">
+                            <ul>
+                                <label class="titulo">deslocamento frontal</label>
+                                <li class="range">
+                                    <input type="range" min="6.5" max="9.99" value="7.5" step="0.1" oninput="offsetfront.value=value" class="slider" id="offsetfrontchange"> 
+                                    <output id="offsetfront">7.5</output>
+                                </li>
+                                <label class="titulo">rotação frontal</label>
+                                <li class="range"><input type="range" min="0" max="3" value="1" step="0.1" oninput="rotationfront.value=value" class="slider" id="rotationfrontchange">
+                                    <output id="rotationfront">0</output>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="opcao">
+                        <div class="bloco">
+                            <h4>Rodas Traseiras</h4>
+                        </div>
+                        <div class="bloco">
+                            <ul>
+                                <label class="titulo">deslocamento traseira</label>
+                                <li class="range">
+                                    <input type="range" min="6.5" max="9.99" value="7.5" step="0.1" oninput="offsetrear.value=value" class="slider" id="offsetrearchange">
+                                    <output id="offsetrear">7.5</output>
+                                </li>
+                                <label class="titulo">rotação traseira</label>
+                                <li class="range"><input type="range" min="0" max="3" value="1" step="0.1" oninput="rotationrear.value=value" class="slider" id="rotationrearchange">
+                                    <output id="rotationrear">0</output>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bloco page colors" style="display: none; margin-top: 5px;">
+            <div class="cores">
+
+                <div class="wrap">
+                    <div class="bodym">
+                        <div id="color_picker"></div>
+                        <p class="sample">
+                            <img src="https://cdn.discordapp.com/attachments/1214219021151637587/1214219306158661733/png-transparent-2018-nissan-sentra-2017-nissan-sentra-car-nissan-micra-car-side-compact-car-sedan-vehicle-thumbnail-removebg-preview.png?ex=65f850d9&is=65e5dbd9&hm=e7688c25e356ee5701ef844de33fadd3be33b19f68a2bc50d599cbb389a9fa3b&">
+                            <i class="sample__color" style="--color:#CCA132;"></i>
+                            <em class="sample__code">#CCA132</em>
+                        </p>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!--painel chamado-->
+    <div class="painelchamado" style="display: none;" id="painelchamado">
+        <div class="container--navigation">
+            <div class="item--link active" data-page="wheels">Chamados</div>
+        </div>
+
+        <div class="bloco page chamado">
+            <div>
+                <form class="sendhelp">
+                    <textarea cols="30" rows="5" placeholder="Descreva aqui seu chamado"></textarea>
+                    <button>Realizar Chamado</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/EasyLogicColorPicker.js"></script>
+    <!-- <script src="js/vue.js"></script> -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
