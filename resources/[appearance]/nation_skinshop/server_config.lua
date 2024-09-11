@@ -1,0 +1,168 @@
+local Tunnel = module("vrp","lib/Tunnel")
+local Proxy = module("vrp","lib/Proxy")
+vRP = Proxy.getInterface("vRP")
+fclient = Tunnel.getInterface("nation_skinshop")
+func = {}
+Tunnel.bindInterface("nation_skinshop", func)
+
+
+---------------------------------------------------------------------------
+-----------------------VERIFICAÇÃO DE PERMISSÃO--------------------------
+---------------------------------------------------------------------------
+
+function func.checkPermission(permission)
+    local source = source
+    local user_id = vRP.getUserId(source)
+    if type(permission) == "table" then
+        for i, perm in pairs(permission) do
+            if vRP.HasPermission(user_id, perm) then
+                return true
+            end
+        end
+        return false
+    end
+    return vRP.HasPermission(user_id, permission)
+end
+---------------------------------------------------------------------------
+-----------------------VERIFICAÇÃO DE PAGAMENTO--------------------------
+---------------------------------------------------------------------------
+--[[function func.tryPayClothes(value)
+    local source = source
+    local user_id = vRP.getUserId(source)
+    if value >= 0 then
+        return vRP.tryPayment(user_id, value)
+    end
+    return false
+end]]
+
+function func.tryPayClothes(value)
+    local source = source
+    local Passport = vRP.Passport(source)
+    if value >= 0 then
+        return vRP.PaymentFull(Passport, value)
+    end
+    return false
+end
+
+
+function func.updateClothes()
+    local source = source
+    local user_id = vRP.getUserId(source)
+    local clothes = fclient.getCloths(source)
+    vRP.setUData(user_id,"Clothings",json.encode(clothes))
+end
+
+
+--------- CREATIVE V3 ------------
+
+
+function func.tryPayClothes(value)
+    local source = source
+    local Passport = vRP.Passport(source)
+    if value >= 0 then
+        if vRP.PaymentFull(Passport, value) or vRP.PaymentBank(Passport, value) or value == 0 then
+            local clothes = fclient.getCloths(source)
+            -- vRP.setUData(user_id,"Clothings",json.encode(clothes))
+            TriggerClientEvent("updateRoupas", source, clothes)
+            return true
+        end
+    end
+    return false
+end
+
+
+-- Server -----------•  ************************* -----------------------------------------------------------------------------------------------------------------------
+-- VROUPAS -- Server -----------•  ************************* ---------------------------------------------------------------------------------------------------------------------------------------------------
+-- Server -----------•  ************************* -----------------------------------------------------------------------------------------------------------------------
+local player_customs = {}
+RegisterCommand('vroupas',function(source,args,rawCommand)
+    local user_id = vRP.getUserId(source)
+    local custom = vRPclient.getCustomization(source)
+    -- if vRP.hasPermission(user_id,"admin.permissao") then
+        if player_customs[source] then
+            player_customs[source] = nil
+            vRPclient._removeDiv(source,"customization")
+        else 
+            local content = ""
+            for k,v in pairs(custom) do
+                content = content..k.." => "..json.encode(v).."<br/>" 
+            end
+
+            player_customs[source] = true
+            vRPclient._setDiv(source,"customization",".div_customization{ margin: auto; padding: 4px; width: 250px; margin-top: 200px; margin-right: 50px; background: rgba(15,15,15,0.7); color: #ffff; font-weight: bold; }",content)
+        end
+    -- end
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------- NYO GUARDA ROUPAS ------------
+
+
+--[[ 
+ local clothParts = {
+	["legs"] = 4,
+	["torsos"] = 3,
+	["undershirts"] = 8,
+	["tops"] = 11,
+	["bodyArmors"] = 9,
+	["bags"] = 5,
+	["shoes"] = 6,
+	["masks"] = 1,
+	["hats"] = "p0",
+	["glasses"] = "p1",
+	["ears"] = "p2",
+	["watches"] = "p7",
+	["bracelets"] = "p7",
+	["accessories"] = 7,
+	["decals"] = 10
+}
+
+
+
+
+function func.tryPayClothes(value)
+    local source = source
+    local user_id = vRP.getUserId(source)
+    if value >= 0 then
+        if vRP.tryPayment(user_id, value) then
+            local parts = fclient.getCloths(source) or {}
+            local dataParts = vRP.getUData(user_id, "nyo:GuardaRoupa")
+            local playerParts = {}
+            if dataParts then 
+                playerParts = json.decode(dataParts) or {}
+            end
+            for _, comp in pairs(clothParts) do
+                if parts[comp] and parts[comp][1] >= 0 then
+                    local drawable = tostring(parts[comp][1])
+                    local c = tostring(comp)
+                    if playerParts[c] then
+                        playerParts[c][drawable] = true
+                    else
+                        playerParts[c] = { [drawable] = true}
+                    end
+                end
+            end
+
+           vRP.setUData(user_id,"nyo:GuardaRoupa",json.encode(playerParts)) 
+           return true
+        end
+    end
+    return false
+end ]]

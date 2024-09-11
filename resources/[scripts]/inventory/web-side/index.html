@@ -1,0 +1,309 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Long Beach</title>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js" integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
+		<link href="./styles/main.css" rel="stylesheet" type="text/css"/>
+		<style>
+		@font-face{
+			font-family: 'nordestina';
+			src: url('../assets/akrobat/xilosa.ttf')
+		}
+		    body {
+			font-family: 'Nordestina', sans-serif;
+		  }
+		</style>
+		<!-- Remova os links do Google Fonts -->
+	  </head>
+		  <body>
+		<div class="hotbar">
+			<ul>
+				<li><div class="slot"></div></li>
+				<li><div class="slot"></div></li>
+				<li><div class="slot"></div></li>
+				<li><div class="slot"></div></li>
+				<li><div class="slot"></div></li>
+			</ul>
+		</div> 
+
+
+
+		<div class="inventory">
+			<header>
+				<div class="infos">
+					<img class="avatar" src="./assets/avatar.png" alt="">
+					<div class="infos-details">
+						<div class="top">
+							<div class="infos-item">
+								<h4>Nome</h4>
+								<h1 class="namePlayer">Nordestino Padrão</h1>
+							</div>
+						</div>
+						<div class="bottom">
+							<div class="infos-item">
+								<h4>Telefone</h4>
+								<h1 class="phone">222-333</h1>
+							</div>
+							<div class="infos-item">
+								<h4>Banco</h4>
+								<h1 class="bank">R$ 200.000</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="exit">
+					<div class="item">
+						<h3>ZOOM</h3>
+						<select name="zoom" id="zoom">
+							<option value="1">Padrão</option>
+							<option value="2">x1</option>
+							<option value="3">x2</option>
+						</select>
+					</div>
+					<h3>Fechar</h3>
+					<div class="close">ESC</div>
+				</div>
+			</header>
+
+			<main class="main-inventory">
+				
+				<div class="hotkeys">
+					<div class="indices">
+						<div class="item"><div class="number">1</div></div>
+						<div class="item"><div class="number">2</div></div>
+						<div class="item"><div class="number">3</div></div>
+						<div class="item"><div class="number">4</div></div>
+						<div class="item"><div class="number">5</div></div>
+					</div>
+					<ul class="hotkeys-list">
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+					</ul>
+				</div>
+
+				<div class="divider">
+					<div class="bar first-bar"></div>
+					<h1>SLOTS</h1>
+					<div class="bar"></div>
+				</div>
+
+				<div class="itensList">
+					<div class="header-itens">
+						<div class="title">
+							<div class="logo"><img src="./assets/bag.png" alt=""></div>
+							<div class="infos">
+								<h3>PRINCIPAL</h3>
+								<h1>INVENTÁRIO</h1>
+							</div>
+						</div>
+
+						<div class="weight">
+							<div class="weight-bars">
+								<div class="weight-bar"></div>
+								<div class="weight-bar"></div>
+								<div class="weight-bar"></div>
+								<div class="weight-bar"></div>
+								<div class="weight-bar"></div>
+								<div class="weight-bar"></div>
+								<div class="weight-bar"></div>
+								<div class="weight-bar"></div>
+								<div class="weight-bar"></div>
+								<div class="weight-bar"></div>
+							</div>
+
+							<h4 class="weightBar">
+								<span>0</span>/100KG
+							</h4>
+
+							<div class="options">
+								<input type="text" class="amount" placeholder="QUANTIDADE">
+								<div class="flex">
+									<button class="use">
+										<img src="./assets/use.png" alt="">
+										<h2>USAR ITEM</h2>
+									</button>
+									<button class='send'>
+										<img src="./assets/send.png" alt="">
+										<h2 class="sendItem">Enviar item</h2>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<ul class="inventory-sctructureL">
+						<li>
+							<div class="slot">
+								<div class="durability-container">
+									<div class="durability">
+										<div class="durability-progress"></div>
+									</div>
+								</div>
+
+								<img src="https://gremio.net/assets_site/img/noticias/default.jpg" alt="">
+								<div class="details">
+									<div class="header-details">
+										<div class="title">
+											<h1>PNEU</h1>
+											<h4>5x</h4>
+										</div>
+
+										<div class="weight">
+											<h3>0.50</h3>
+											<img src="./assets/bagdetails.png" alt="">
+										</div>
+									</div>
+
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. </p>
+								</div>
+							</div>
+						</li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+					</ul>
+
+					<div class="btn-collection">
+						<div class="guide">
+							<div class="mouse">
+								<img src="./assets/mbesquerdo.png" alt="">
+							</div>
+							<div class="guide-text">
+								<h3>MOVER</h3>
+								<p>B. ESQUERDO.</p>
+							</div>
+						</div>
+						<div class="guide">
+							<div class="mouse">
+								<img src="./assets/mbdireito.png" alt="">
+							</div>
+							<div class="guide-text">
+								<h3>USAR</h3>
+								<p>B. DIREITO.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="dropList">
+					<div class="header-itens">
+						<div class="title">
+							<div class="logo"><img src="./assets/secundary.png" alt=""></div>
+							<div class="infos">
+								<h3>SECUNDÁRIO</h3>
+								<h1>PRÓXIMOS</h1>
+							</div>
+						</div>
+					</div>
+
+					<ul class="inventory-sctructureR">
+						<li><div class="slot">
+								<div class="durability"><div class="durability-progress"></div></div>
+							</div>
+						</li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+						<li><div class="slot"></div></li>
+					</ul>
+								
+				</div>
+
+				<div class="divider">
+					<div class="bar first-bar"></div>
+					<h1>CLOTHES</h1>
+					<div class="bar"></div>
+				</div>
+
+				<div class="clothes">
+					<div class="header-itens">
+						<div class="title">
+							<div class="logo"><img src="./assets/secundary.png" alt=""></div>
+							<div class="infos">
+								<h3>SECUNDÁRIO</h3>
+								<h1>PRÓXIMOS</h1>
+							</div>
+						</div>
+					</div>
+					
+					<div class="main">
+						<ul class="firstClothe"></ul>
+						<img src="./assets/body.png" alt="">
+						<ul class="secondClothe"></ul>
+					</div>
+				</div>
+			</main>
+	
+		</div>
+		<script src="jquery.js"></script>
+	</body>
+</html>

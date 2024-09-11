@@ -1,0 +1,429 @@
+@font-face {
+    font-family: "TT Lakes";
+    src: url("./fonts/ttlakes.eot"); /* IE9*/
+    src: url("./fonts/ttlakes.eot?#iefix") format("embedded-opentype"),
+      /* IE6-IE8 */ url("./fonts/ttlakes.woff2") format("woff2"),
+      /* chrome、firefox */ url("./fonts/ttlakes.woff") format("woff"),
+      /* chrome、firefox */ url("./fonts/ttlakes.ttf") format("truetype"),
+      /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url("./fonts/ttlakes.svg") format("svg"); /* iOS 4.1- */
+  }
+  @font-face {
+    font-family: "TT Lakes Bold";
+    src: url("./fonts/TTLakes-Bold.ttf"); /* IE9*/
+    src: url("./fonts/TTLakes-Bold.ttf") format("truetype"); /* iOS 4.1- */
+  }
+  body,
+  * {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    user-select: none;
+    font-family: "TT Lakes";
+  }
+  
+  body:active,
+  body:focus,
+  *:active,
+  *:focus {
+    outline: 0;
+  }
+  
+  .display-limiter {
+    height: 100vh;
+    display: none;
+    align-items: center;
+    /* display: block; */
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(104, 92, 126, 0.75) 0%,
+      rgba(0, 0, 0, 0) 50%
+    );
+  }
+  
+  .display-limiter .tablet-container {
+    width: 360px;
+    margin-left: 4rem;
+    min-height: 48rem;
+    /* background: linear-gradient(90deg, rgba(104, 92, 126, 0.75) 0%, rgba(0, 0, 0, 0) 30%); */
+  }
+  
+  .display-limiter .tablet-container header {
+    color: #ccc;
+    font-weight: 600;
+    background-color: rgba(17, 17, 17, 0.8);
+  
+    display: flex;
+    align-items: center;
+  
+    height: 80px;
+    padding: 0 14px;
+  }
+  
+  .display-limiter .tablet-container header i {
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    background-color: rgba(17, 17, 17, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    color: white;
+  
+    border-radius: 5px;
+    margin-right: 10px;
+  
+    margin-top: 5px;
+  }
+  
+  .display-limiter .tablet-container header h1 {
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+  }
+  
+  .display-limiter .tablet-container header p {
+    font-weight: 400;
+    font-size: 10px;
+  }
+  
+  .display-limiter .tablet-container section {
+    /* background-color: rgba(17, 17, 17, 0.4); */
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .display-limiter .tablet-container section .values-field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+    margin-top: 10px;
+  }
+  
+  .display-limiter .tablet-container section .values-field .field-area {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  
+    /* background-color: rgba(17, 17, 17, 0.4); */
+    margin-bottom: 15px;
+  
+    padding: 16px 12px;
+    width: 310px;
+  
+    background: rgba(17, 17, 17, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+  
+  .display-limiter .tablet-container section .values-field .text {
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  
+  .display-limiter
+    .tablet-container
+    section
+    .values-field
+    .field-area
+    .text
+    label,
+  .display-limiter .tablet-container section .values-field .text p {
+    font-family: "TT Lakes";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+  
+    color: rgba(255, 255, 255, 0.45);
+  }
+  .display-limiter .tablet-container section .values-field .text label {
+    font-family: "TT Lakes";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+  
+    color: #ffffffb7;
+  }
+  
+  .display-limiter .tablet-container section .button-field {
+    width: 94%;
+    display: flex;
+    justify-content: space-between;
+  
+    margin: 5px 0;
+    margin-bottom: 12px;
+  }
+  
+  .display-limiter .tablet-container section .button-field button {
+    font-size: 12px;
+    text-transform: uppercase;
+    border: 0px;
+    border-radius: 2px;
+    width: 160px;
+    height: 50px;
+    font-family: "TT Lakes";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+  
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 1px;
+  
+    opacity: 0.8;
+    font-weight: 600;
+  
+    background: rgba(17, 17, 17, 0.55);
+    box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+  
+  .display-limiter .tablet-container section .button-field .active {
+    color: rgba(255, 255, 255, 0.8);
+    transition: 0.2s !important;
+    background: rgba(104, 92, 126, 0.6);
+    box-shadow: inset 0 0 0 1.5px rgba(104, 92, 126, 0.6) !important;
+    border-radius: 10px !important;
+  }
+  
+  .display-limiter .tablet-container section .button-field button:hover {
+    opacity: 1;
+    transition: 0.2s;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+    height: 10px;
+    -webkit-appearance: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+    z-index: 3;
+    width: 10px;
+    height: 15px;
+    /* border-radius: 3px; */
+    /* background: #01C6A0; */
+    -webkit-appearance: none;
+    /* border: 3px solid #01C6A0; */
+  
+    background: linear-gradient(
+      90deg,
+      #685c7e 0.01%,
+      rgba(104, 92, 126, 0.96) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 3px;
+  }
+  /* input {
+      background-color: transparent;
+  } */
+  
+  /* input[type=range].styled-slider {
+      display: flex;
+      align-items: center;
+      height: 15px;
+      appearance: none;
+  
+      margin-top: 6px;
+  }
+  
+  input[type=range].styled-slider.slider-progress {
+      --range: calc(var(--max) - var(--min));
+      --ratio: calc((var(--value) - var(--min)) / var(--range));
+      --sx: calc(0.5 * 8px + var(--ratio) * (100% - 8px));
+  }
+  
+  input[type=range].styled-slider:focus {
+      outline: none;
+  }
+  
+  input[type=range].styled-slider::-webkit-slider-thumb {
+      width: 12px;
+      height: 12px;
+      background: #01C6A0;
+      border: none;
+      margin-top: calc(6px * 0.5 - 12px * 0.5);
+      -webkit-appearance: none;
+      border-radius: 100%;
+  }
+  
+  input[type=range].styled-slider::-webkit-slider-runnable-track {
+      height: 6px;
+      background: #fff;
+      border: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+  }
+  
+  input[type=range].styled-slider.slider-progress::-webkit-slider-runnable-track {
+      background: rgba(17,17,17, 0.3);
+  }
+  
+  input[type=range].styled-slider::-moz-range-thumb {
+      width: 8px;
+      height: 10px;
+      background: #C7CCDA;
+      border: none;
+      box-shadow: none;
+  }
+  
+  input[type=range].styled-slider::-moz-range-track {
+      height: 6px;
+      background: #A8AFC6;
+      border: none;
+      box-shadow: none;
+  }
+  
+  input[type=range].styled-slider.slider-progress::-moz-range-track {
+      background: linear-gradient(#A8AFC6, #A8AFC6) 0/var(--sx) 100% no-repeat, #A8AFC6;
+  }
+  
+  input[type=range].styled-slider::-ms-fill-upper {
+      background: transparent;
+      border-color: transparent;
+  }
+  
+  input[type=range].styled-slider::-ms-fill-lower {
+      background: transparent;
+      border-color: transparent;
+  }
+  
+  input[type=range].styled-slider::-ms-thumb {
+      width: 8px;
+      height: 10px;
+      background: #C7CCDA;
+      border: none;
+      box-shadow: none;
+      margin-top: 0;
+      box-sizing: border-box;
+  }
+  
+  input[type=range].styled-slider::-ms-track {
+      height: 6px;
+      background: #A8AFC6;
+      border: none;
+      box-shadow: none;
+      box-sizing: border-box;
+  }
+  
+  input[type=range].styled-slider.slider-progress::-ms-fill-lower {
+      height: 6px;
+      margin: -undefined 0 -undefined -undefined;
+      background: #6B7184;
+      border: none;
+      border-right-width: 0;
+  } */
+  .box-header {
+    font-family: "TT Lakes";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    /* display: flex; */
+    align-items: center;
+    letter-spacing: 0.425em;
+    text-transform: uppercase;
+    color: #ffffff;
+    width: 20rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    margin-left: 1rem;
+  }
+  .box-header .title {
+    font-size: 15px;
+    display: block;
+    font-weight: normal;
+  }
+  .box-header .subtitle {
+    display: block;
+    font-family: "TT Lakes Bold";
+    font-weight: 700;
+    line-height: 29px;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  
+  .rotate {
+    position: absolute;
+    left: 5rem;
+    bottom: 5rem;
+    font-family: "TT Lakes";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+  }
+  
+  .rotate div {
+    font-family: "TT Lakes";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    margin-right: 1rem;
+  }
+  
+  .rotate div span {
+    background: rgba(17, 17, 17, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-right: 8px;
+  
+    font-family: "TT Lakes";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 19px;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+  
+    width: 2rem;
+    height: 2rem;
+    padding: 0.2rem;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    color: rgba(255, 255, 255, 0.45);
+  }
+  

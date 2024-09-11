@@ -1,0 +1,699 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: none;
+  user-select: none;
+  text-rendering: auto;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+b {
+	color: #ccc;
+}
+
+#actionmenu {
+    display: none;
+    width: 100%;
+    height: 100%;
+    animation: 1s;
+}
+
+#loading {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(37, 37, 37, 0.8);
+	z-index: 9999;
+  }
+  
+  .loading-content {
+	text-align: center;
+  }
+  
+  .spinner {
+	width: 40px;
+	height: 40px;
+	border: 4px solid rgba(2, 92, 55, 0.769);
+	border-top: 4px solid rgb(2, 92, 55);
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }
+  
+
+
+.camera {
+    position: absolute;
+    width: 4vw;
+    height: 12.2vw;
+    top: 7vw;
+    border-radius: 0.2vw;
+    right: 1vw;
+    padding: 0.5vw;
+    background: rgba(40, 40, 44, 0.705);
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.camera .iconCamera {
+    width: 3vw;
+    height: 3vw;
+    border-radius: 0.2vw;
+    margin-bottom: 1.6vw;
+    text-align: center;
+    align-items: center;
+    transition: all .2s;
+    font-size: 0.4vmax;
+	text-transform: uppercase;
+	background: rgb(2, 92, 55);
+    color: rgba(255, 255, 255, 0.664);
+}
+
+.iconCamera i{
+    margin-top: 0.75vw;
+    font-size: 1.6vmax;
+}
+
+.iconCamera label{
+    top: 1.1vw;
+    position: relative;
+    font-size: 0.5vmax;
+    letter-spacing: 0.05vw;
+}
+
+.camera .rotationRight,
+.rotationLeft {
+    width: 3vw;
+    height: 3vw;
+    border-radius: 0.2vw;
+    margin-bottom: 0.5vw;
+    text-align: center;
+    align-items: center;
+    transition: all .2s;
+    font-size: 0.4vmax;
+	text-transform: uppercase;
+    background: rgba(15, 15, 15, 0.918);
+    color: rgba(255, 255, 255, 0.664);
+}
+
+.rotationRight, .rotationLeft .active {
+    transition: 0.2s;
+    background: rgb(2, 92, 55);
+}
+
+.rotationRight:hover,
+.rotationLeft:hover {
+    transition: 0.2s;
+    background: rgb(2, 92, 55);
+}
+
+.rotationRight i ,
+.rotationLeft i{
+    margin-top: 0.75vw;
+    font-size: 1.6vmax;
+}
+
+.dealership_head {
+	position: relative;
+	width: 100%;
+	height: 3vw;
+	color: #ccc;
+	display: flex;
+	align-items: center;
+	padding-top: 2vw;
+    padding-left: 1vw;
+	text-transform: uppercase;
+	justify-content: space-between;
+    margin-bottom: 0.1vw;
+}
+
+.dealership_head .icon {
+    width: 2.5vw;
+    height: 2.5vw;
+    display: flex;
+    font-size: 1vmax;
+    color: #ffffff;
+    border-radius: 0.2vw;
+    font-weight: 600;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.322);
+}
+
+.dealership_head .newTitle {
+	margin-right: 10vw;
+	font-size: 0.70vmax;
+}
+
+.dealership_head h1{
+    margin: -0.2vw;
+	color: #ccc;
+}
+
+.dealership_head small {
+	opacity: .5;
+	letter-spacing: 0.05vw;
+	font-size: 0.5vmax;
+}
+
+#closeButton {
+	opacity: 60%;
+	width: 2vw;
+	height: 2vw;
+	top: 15.2%;
+	left: 1.2vw;
+	margin-top: 1.8vw;
+	position: absolute;
+	cursor: pointer;
+}
+
+#closeButton:hover{
+	transform: scale(1.1);
+	transition: all 0.9s;
+
+}
+
+#closeButton img {
+	position: absolute;
+	width: 1.7vw;
+	height: 1.7vw;
+}
+
+#pageVehicles {
+	margin-top: 4vw;
+	padding-left: 1vw;
+	padding-right: 1vw;
+	height: 24.5vw;
+	border-radius: 0.3vw;
+    position: relative;
+    float: left;
+    overflow-y: scroll;
+}
+
+.vehicle {
+	position: relative;
+	width: 100%;
+	height: 7vw;
+	display: flex;
+	align-items: center;
+	border-radius: 0.3vw;
+	margin-bottom: 0.2vw;
+	transition: all .2s;
+    background: rgba(17, 17, 17, 0.922);
+}
+
+.vehicle:hover,.active {
+	transition: 0.6s;
+	background: #000;
+}
+
+.vehicle:last-child {
+	margin-bottom: 0;
+}
+
+.vehicle .item-info {
+    position: relative;
+    display: flex;
+    margin-top: 1.6vw;
+	right: 3.7vw;
+}
+
+.contentVehicle {
+	position: absolute;
+	top: -2.5vw;
+	right: 2.7vw;
+	width: 18vw;
+	height: 5vw;
+	display: flex;
+	opacity: 0.8;
+}
+
+.contentVehicle .newTitle {
+	margin-left: 0.2vw;
+	font-size: 0.4vmax;
+}
+
+.contentVehicle h1{
+	color: #fff;
+}
+
+.contentVehicle small {
+    opacity: 0.8;
+    letter-spacing: 0.05vw;
+    color: white;
+    font-size: 0.5vmax;
+}
+
+.contentLeft{
+	margin-top: 4vw;
+	padding-left: 1vw;
+	padding-right: 1vw;
+	height: 20vw;
+    position: relative;
+    float: left;
+    overflow-y: scroll;
+}
+
+.item-info .iconveh {
+    width: 2vw;
+    height: 2vw;
+    display: flex;
+    font-size: 1vmax;
+    color: rgb(255 255 255);
+    border-radius: 0.2vw;
+    font-weight: 600;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(2, 92, 55, 0.9);
+}
+
+.sellValue {
+	position: absolute;
+	margin-right: 1vw;
+	margin-top: 0.1vw;
+	color: #ccc;
+	display: flex;
+	width: 15vw;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.sellValue .newTitle {
+	margin-right: 4vw;
+}
+
+.plate {
+	position: absolute;
+	margin-right: 1vw;
+	margin-top: 2.5vw;
+	color: #ccc;
+	display: flex;
+	width: 15vw;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.plate .newTitle {
+	margin-right: 4vw;
+}
+
+.mensalTax {
+	position: absolute;
+	margin-left: 13vw;
+	margin-top: 0.1vw;
+	color: #ccc;
+	display: flex;
+	width: 15vw;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.mensalTax .newTitle {
+	margin-right: 4vw;
+}
+
+.rental {
+	position: absolute;
+	margin-left: 13vw;
+	margin-top: 2.5vw;
+	color: #ccc;
+	display: flex;
+	width: 15vw;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.rental .newTitle {
+	margin-right: 4vw;
+}
+
+
+.value {
+	position: absolute;
+	margin-top: 0.1vw;
+	color: #fff;
+	display: flex;
+	width: 10vw;
+	text-transform: uppercase;
+}
+
+.value .newTitle {
+	margin-right: 4.2vw;
+}
+
+.malas {
+	position: absolute;
+	margin-top: 2.5vw;
+	color: #ccc;
+	display: flex;
+	width: 10vw;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.malas .newTitle {
+	margin-right: 5.5vw;
+}
+
+.tax {
+	position: absolute;
+	margin-left: 13vw;
+	margin-top: 2.5vw;
+	color: #ccc;
+	display: flex;
+	width: 10vw;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.tax .newTitle {
+	margin-right: 4vw;
+}
+
+
+.estvhs {
+	position: absolute;
+	margin-left: 13vw;
+	margin-top: 0.1vw;
+	color: #ccc;
+	display: flex;
+	width: 10vw;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.estvhs .newTitle {
+	margin-right: 4vw;
+}
+
+.stock {
+	position: absolute;
+	margin-left: 13vw;
+	margin-top: 2.5vw;
+	color: #ccc;
+	display: flex;
+	width: 10vw;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.stock .newTitle {
+	margin-right: 5vw;
+}
+
+.name-veh {
+	top: -2.5vw;
+	width: 100%;
+	margin-left: 0.6vw;
+	position: relative;
+	display: flex;
+	align-items: center;
+	transition: all .2s;
+}
+
+.name-veh span {
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1vmax;
+	font-weight: 600;
+}
+
+.renovar {
+	position: absolute;
+	width: 10vw;
+	margin-left: 18.5vw;
+	align-items: center;
+	transition: all .2s;
+}
+
+#benefactorRenovar {
+	opacity: .5;
+	display: flex;
+	color: #fff;
+	flex-direction: column;
+	justify-content: center;
+	text-transform: uppercase;
+	transition: all .2s;
+}
+
+#benefactorRenovar i{
+	margin: 0;
+}
+
+#benefactorRenovar:hover {
+	color: #fff;
+}
+
+#benefactorRenovar:last-child:hover {
+	opacity: 1;
+}
+
+.pagar {
+	position: absolute;
+	width: 10vw;
+	margin-left: 20vw;
+	align-items: center;
+	transition: all .2s;
+}
+
+#benefactorTax {
+	opacity: .5;
+	display: flex;
+	color: #fff;
+	flex-direction: column;
+	justify-content: center;
+	text-transform: uppercase;
+	transition: all .2s;
+}
+
+#benefactorTax i{
+	margin: 0;
+}
+
+#benefactorTax:hover {
+	color: #fff;
+}
+
+#benefactorTax:last-child:hover {
+	opacity: 1;
+}
+
+#categories {
+    position: relative;
+    display: flex;
+    width: 27vw;
+    margin-top: 1.6vw;
+}
+
+#categories li {
+    width: 5.5vw;
+    height: 3.5vw;
+	border-radius: 0.2vw;
+	margin-left: 2.55vw;
+	display: flex;
+	color: rgba(255, 255, 255, 0.836);
+	background: rgba(17, 17, 17, 0.89);
+	opacity: 0.8;
+    font-size: 1.6vmax;
+	align-items: center;
+	position: relative;
+	text-align: center;
+	margin-bottom: 0.36vw;
+	justify-content: center;
+	transition: all 0.1s linear;
+}
+
+#categories:last-child {
+	margin: 0;
+}
+
+#categories li:hover {
+	transition: 0.6s;
+	border: 2px solid rgb(2, 92, 55);
+}
+
+#categories label {
+    top: 3.8vw;
+    position: absolute;
+	text-transform: uppercase;
+    font-size: 0.5vmax;
+    letter-spacing: 0.05vw;
+}
+
+#itens {
+	position: absolute;
+	top: 7vw;
+	left: 2vw;
+	margin: 0;
+    width: 27vw;
+    height: 41vw;
+	display: flex;
+	border-radius: 0.3vw;
+	flex-direction: column;
+    background: rgba(17, 17, 17, 0.905);
+}
+
+#buttons {
+	position: absolute;
+	width: 100%;
+	bottom: -0.5vw;
+	padding: 1vw;
+	display: flex;
+	align-items: center;
+}
+
+#buttons span {
+	font-size: 0.6vmax;
+	font-weight: 600;
+	letter-spacing: .026vw;
+}
+
+#buttons small {
+	opacity: .85;
+	font-size: 0.45vmax;
+	letter-spacing: 0.05vw;
+}
+
+#benefactorBuy,
+#benefactorDrive,
+#benefactorRental,
+#benefactorTransf,
+#benefactorSell{
+	width: 50%;
+	display: flex;
+	height: 2.8vw;
+	color: #ffffff;
+	border-radius: 0.2vw;
+	padding: 0 0.78vw;
+	flex-direction: column;
+	justify-content: center;
+	text-transform: uppercase;
+	transition: 0.6s;
+	background: rgba(17, 17, 17, 0.8);
+}
+
+#benefactorBuy:hover,
+#benefactorDrive:hover,	
+#benefactorRental:hover,
+#benefactorTransf:hover {
+	transition: 0.6s;
+	border: 2px solid rgb(104, 92, 126);
+	color: #ffffff;
+}
+
+#benefactorSell:hover {
+	transition: 0.6s;
+	background: rgba(168, 24, 24, 0.322);
+	color: #222222;
+}
+
+
+#benefactorBuy:last-child,
+#benefactorDrive:last-child,
+#benefactorRental:last-child,
+#benefactorTransf:last-child,
+#benefactorSell:last-child {
+	background: rgba(17, 17, 17, 0.8);
+	transition: 0.6s;
+	margin-left: 0.26vw;
+}
+
+#benefactorBuy:last-child:hover,
+#benefactorDrive:last-child:hover,
+#benefactorRental:last-child:hover,
+#benefactorTransf:last-child:hover {
+	transition: 0.6s;
+	border: 2px solid rgb(104, 92, 126);
+	color: #ffffff;
+}
+
+#benefactorSell:last-child:hover {
+	transition: 0.6s;
+	background: rgba(168, 24, 24, 0.322);
+	color: #222222;
+}
+
+#search {
+    top: 10vw;
+    left: 5vw;
+    position: absolute;
+}
+
+.section_content_search {
+    position: absolute; 
+    height: 2vw;
+    width: 15vw;
+	left: 6vw;
+	border-radius: 0.2vw;
+    background: rgba(0, 0, 0, 0.322);
+}
+.section_content_search .icon {
+    position: absolute;
+	font-size: 0.7vmax;
+    top: 50%;
+    right: 0.52vw;
+    color: #ffffffe1;
+    transform: translate(0,-50%);
+}
+
+.section_content_search input {
+    position: absolute;
+    left: 0;
+    border: 0;
+    width: 78%;
+    height: 100%;
+    outline: none;
+    font-size: 0.7vmax;
+	color: #ccc;
+    padding-left: 0.52vw;
+    background-color: transparent;
+}
+
+#contentVehicles {
+    position: absolute;
+	width: 0.52vw;
+}
+
+#titleVehicles {
+	position: absolute;
+	width: 9.5vw;
+	margin-left: -4vw;
+	height: 2vw;
+	border-radius: 0.2vw;
+	font-size: 1vmax;
+	padding: 0.4vw;
+	font-weight: 550;
+	text-align: left;
+	align-items: left;
+	letter-spacing: 0.052vw;
+	color: #ccc;
+	text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.322);
+}
+
+::-webkit-scrollbar { width: 0; }
+::selection { background: transparent; }
+::-moz-selection { background: transparent; }

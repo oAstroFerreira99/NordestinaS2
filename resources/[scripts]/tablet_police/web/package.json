@@ -1,0 +1,33 @@
+{
+  "name": "web",
+  "homepage": "web/build",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "start": "vite",
+    "start:game": "vite build --watch",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@radix-ui/react-checkbox": "^1.0.3",
+    "@radix-ui/react-dialog": "^1.0.3",
+    "@types/styled-components": "^5.1.26",
+    "apexcharts": "^3.41.0",
+    "formik": "^2.2.9",
+    "phosphor-react": "^1.4.1",
+    "react": "^18.2.0",
+    "react-apexcharts": "^1.4.0",
+    "react-dom": "^18.2.0",
+    "react-iframe": "^1.8.5",
+    "react-select": "^5.7.2",
+    "styled-components": "^5.3.8"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "@vitejs/plugin-react": "^2.2.0",
+    "typescript": "^4.9.3",
+    "vite": "^3.2.4"
+  }
+}

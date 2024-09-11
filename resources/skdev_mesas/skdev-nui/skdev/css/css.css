@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    user-select: none;
+    list-style: none;
+    box-shadow: none;
+    text-decoration: none;
+    text-shadow: none;
+    box-sizing: border-box;
+    font-style: normal;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mesa {
+    display: none;
+    position: absolute;
+
+    width: 20vw;
+    height: 35vw;
+    padding: 1vw;
+    gap: .5vw;
+
+    left: 1%;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background: #141414;
+}
+
+.mesa::-webkit-scrollbar {
+    width: .3vw;
+    background: transparent;
+}
+
+.mesa::-webkit-scrollbar-thumb {
+    background: #545454;
+}
+
+.mesa>div {
+    display: flex;
+    position: relative;
+
+    width: 18vw;
+    height: 8vw;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: .5vw;
+
+    font-family: "Montserrat";
+    font-size: .6vw;
+    color: #fff;
+
+    background: #323232;
+}
+
+.mesa>div img {
+    position: absolute;
+    left: 1%;
+
+    width: 7vw;
+
+    background: #404040;
+}
+
+.mesa>div h2 {
+    position: relative;
+    left: 40%;
+
+    min-width: 5vw;
+    max-width: 10vw;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mesa>div div div {
+    display: flex;
+    position: relative;
+    left: 40%;
+    gap: .3vw;
+    margin-top: .7vw;
+
+    flex-direction: row;
+}
+
+.mesa>div div div button {
+    display: flex;
+    position: relative;
+
+    width: 4.5vw;
+    height: 1.5vw;
+
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    font-family: "Montserrat";
+    font-size: .6vw;
+    color: #fff;
+
+    background: #545454;
+}
+
+.mesa h5 {
+    display: flex;
+    position: absolute;
+
+    width: 1vw;
+    height: 1vw;
+    right: 2%;
+    top: 2%;
+    padding: 1vw;
+    border-radius: .2vw;
+
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    font-family: "Montserrat";
+    font-size: 1vw;
+    color: #fff;
+
+    background: #545454;
+
+    z-index: 999;
+}

@@ -1,0 +1,104 @@
+--Script Convertido meia boca para Network
+--coloque isso em vrp/client/base.lua
+--Quer scripts? venha para a melhor comunidade de vazamentos e servicos do discord https://discord.gg/taco
+
+function tvRP.giveWeapons(wp_table)
+end
+
+local Weapons = {
+    [GetHashKey("WEAPON_PISTOL")] = "WEAPON_PISTOL",
+    [GetHashKey("WEAPON_PISTOL_MK2")] = "WEAPON_PISTOL_MK2",
+    [GetHashKey("WEAPON_COMBATPISTOL")] = "WEAPON_COMBATPISTOL",
+    [GetHashKey("WEAPON_APPISTOL")] = "WEAPON_APPISTOL",
+    [GetHashKey("WEAPON_HEAVYPISTOL")] = "WEAPON_HEAVYPISTOL",
+    [GetHashKey("WEAPON_REVOLVER")] = "WEAPON_REVOLVER",
+    [GetHashKey("WEAPON_MICROSMG")] = "WEAPON_MICROSMG",
+    [GetHashKey("WEAPON_SMG")] = "WEAPON_SMG",
+    [GetHashKey("WEAPON_ASSAULTSMG")] = "WEAPON_ASSAULTSMG",
+    [GetHashKey("WEAPON_CARBINERIFLE")] = "WEAPON_CARBINERIFLE",
+    [GetHashKey("WEAPON_CARBINERIFLE_MK2")] = "WEAPON_CARBINERIFLE_MK2",
+    [GetHashKey("WEAPON_ADVANCEDRIFLE")] = "WEAPON_ADVANCEDRIFLE",
+    [GetHashKey("WEAPON_SPECIALCARBINE")] = "WEAPON_SPECIALCARBINE",
+    [GetHashKey("WEAPON_SPECIALCARBINE_MK2")] = "WEAPON_SPECIALCARBINE_MK2",
+    [GetHashKey("WEAPON_BULLPUPRIFLE")] = "WEAPON_BULLPUPRIFLE",
+    [GetHashKey("WEAPON_BULLPUPRIFLE_MK2")] = "WEAPON_BULLPUPRIFLE_MK2",
+    [GetHashKey("WEAPON_HEAVYRIFLE")] = "WEAPON_HEAVYRIFLE",
+    [GetHashKey("WEAPON_PUMPSHOTGUN")] = "WEAPON_PUMPSHOTGUN",
+    [GetHashKey("WEAPON_PUMPSHOTGUN_MK2")] = "WEAPON_PUMPSHOTGUN_MK2",
+    [GetHashKey("WEAPON_SAWNOFFSHOTGUN")] = "WEAPON_SAWNOFFSHOTGUN",
+    [GetHashKey("WEAPON_ASSAULTSHOTGUN")] = "WEAPON_ASSAULTSHOTGUN",
+    [GetHashKey("WEAPON_BULLPUPSHOTGUN")] = "WEAPON_BULLPUPSHOTGUN",
+    [GetHashKey("WEAPON_STUNGUN")] = "WEAPON_STUNGUN",
+    [GetHashKey("WEAPON_FLAREGUN")] = "WEAPON_FLAREGUN",
+    [GetHashKey("WEAPON_GADGET_PISTOL")] = "WEAPON_GADGET_PISTOL",
+    [GetHashKey("WEAPON_MARKSMANRIFLE")] = "WEAPON_MARKSMANRIFLE",
+    [GetHashKey("WEAPON_MARKSMANRIFLE_MK2")] = "WEAPON_MARKSMANRIFLE_MK2",
+    [GetHashKey("WEAPON_HEAVYSNIPER")] = "WEAPON_HEAVYSNIPER",
+    [GetHashKey("WEAPON_HEAVYSNIPER_MK2")] = "WEAPON_HEAVYSNIPER_MK2",
+    [GetHashKey("WEAPON_REMOTESNIPER")] = "WEAPON_REMOTESNIPER",
+    [GetHashKey("WEAPON_GRANADE")] = "WEAPON_GRANADE",
+    [GetHashKey("WEAPON_STICKYBOMB")] = "WEAPON_STICKYBOMB",
+    [GetHashKey("WEAPON_PROXIMITYMINE")] = "WEAPON_PROXIMITYMINE",
+    [GetHashKey("WEAPON_SNOWBALL")] = "WEAPON_SNOWBALL",
+    [GetHashKey("WEAPON_FLARE")] = "WEAPON_FLARE",
+    [GetHashKey("WEAPON_BZGAS")] = "WEAPON_BZGAS",
+    [GetHashKey("WEAPON_MOLOTOV")] = "WEAPON_MOLOTOV",
+    [GetHashKey("WEAPON_JERRYCAN")] = "WEAPON_JERRYCAN",
+    [GetHashKey("WEAPON_FIREEXTINGUISHER")] = "WEAPON_FIREEXTINGUISHER",
+    [GetHashKey("WEAPON_HATCHET")] = "WEAPON_HATCHET",
+    [GetHashKey("WEAPON_KNIFE")] = "WEAPON_KNIFE",
+    [GetHashKey("WEAPON_MACHETE")] = "WEAPON_MACHETE",
+    [GetHashKey("WEAPON_SWITCHBLADE")] = "WEAPON_SWITCHBLADE",
+    [GetHashKey("WEAPON_CROWBAR")] = "WEAPON_CROWBAR",
+    [GetHashKey("WEAPON_GOLFCLUB")] = "WEAPON_GOLFCLUB",
+    [GetHashKey("WEAPON_BAT")] = "WEAPON_BAT",
+    [GetHashKey("WEAPON_BASEBALLBAT")] = "WEAPON_BASEBALLBAT",
+    [GetHashKey("WEAPON_DAGGER")] = "WEAPON_DAGGER",
+    [GetHashKey("WEAPON_BOTTLE")] = "WEAPON_BOTTLE",
+    [GetHashKey("WEAPON_MUSKET")] = "WEAPON_MUSKET",
+    [GetHashKey("WEAPON_FIREWORK")] = "WEAPON_FIREWORK",
+    [GetHashKey("WEAPON_RAILGUN")] = "WEAPON_RAILGUN",
+    [GetHashKey("WEAPON_HAMMER")] = "WEAPON_HAMMER",
+    [GetHashKey("WEAPON_AXE")] = "WEAPON_AXE",
+    [GetHashKey("WEAPON_CARABINE_RIFLE")] = "WEAPON_CARABINE_RIFLE",
+    [GetHashKey("WEAPON_CARABINE_RIFLE_MK2")] = "WEAPON_CARABINE_RIFLE_MK2",
+    [GetHashKey("WEAPON_LMG")] = "WEAPON_LMG",
+    [GetHashKey("WEAPON_TASER")] = "WEAPON_TASER",
+    [GetHashKey("WEAPON_COMBATMG")] = "WEAPON_COMBATMG",
+    [GetHashKey("WEAPON_COMBATMG_MK2")] = "WEAPON_COMBATMG_MK2",
+    [GetHashKey("WEAPON_MINIGUN")] = "WEAPON_MINIGUN",
+    [GetHashKey("WEAPON_GRENADELAUNCHER")] = "WEAPON_GRENADELAUNCHER",
+    [GetHashKey("WEAPON_GRENADELAUNCHER_SMOKE")] = "WEAPON_GRENADELAUNCHER_SMOKE",
+    [GetHashKey("WEAPON_RPG")] = "WEAPON_RPG",
+    [GetHashKey("WEAPON_HOMINGLAUNCHER")] = "WEAPON_HOMINGLAUNCHER",
+    [GetHashKey("WEAPON_COMPACTLAUNCHER")] = "WEAPON_COMPACTLAUNCHER",
+    [GetHashKey("WEAPON_FLAREGUN")] = "WEAPON_FLAREGUN",
+    [GetHashKey("WEAPON_AUTOSHOTGUN")] = "WEAPON_AUTOSHOTGUN",
+    [GetHashKey("WEAPON_BULLPUPSHOTGUN")] = "WEAPON_BULLPUPSHOTGUN",
+    [GetHashKey("WEAPON_PUMPSHOTGUN")] = "WEAPON_PUMPSHOTGUN",
+    [GetHashKey("WEAPON_SNIPERRIFLE")] = "WEAPON_SNIPERRIFLE",
+    [GetHashKey("WEAPON_SNIPERRIFLE_MK2")] = "WEAPON_SNIPERRIFLE_MK2",
+    [GetHashKey("WEAPON_MG")] = "WEAPON_MG",
+    [GetHashKey("WEAPON_HAMMER")] = "WEAPON_HAMMER",
+    [GetHashKey("WEAPON_PETROLCAN")] = "WEAPON_PETROLCAN",
+    [GetHashKey("WEAPON_STUNGUN")] = "WEAPON_STUNGUN",
+    [GetHashKey("WEAPON_PIPEBOMB")] = "WEAPON_PIPEBOMB"
+}
+
+function tvRP.getWeapons()
+    local playerPed = PlayerPedId()
+    local weapons = {}
+
+    for hash, name in pairs(Weapons) do
+        if HasPedGotWeapon(playerPed, hash, false) then
+            local ammo = GetAmmoInPedWeapon(playerPed, hash)
+            table.insert(weapons, {
+                hash = hash,
+                name = name,
+                ammo = ammo
+            })
+        end
+    end
+
+    return weapons
+end

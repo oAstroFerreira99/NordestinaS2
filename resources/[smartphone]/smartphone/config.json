@@ -1,0 +1,66 @@
+{
+  "token": "",
+  "client": {
+    "bankType": "fleeca",
+    "uploadServer": "https://canary.discord.com/api/webhooks/1105684926466101308/KV7FrXtJYqrJp-UAG7w7yaRmxhlV838sHPYc7cpPSYW0ob2So0KF54a-O2n-jGyoqJfs",
+    "allowUnsafeURL": true,
+    "videoServer": "ws://104.234.63.139:8080/",
+    "case": "s20cda",
+    "apps": {
+        "calculator": "https://cdn.discordapp.com/attachments/1092376570678747146/1092376620582584381/calculator.webp",
+        "notes": "https://cdn.discordapp.com/attachments/1092376570678747146/1092376621845069834/notes.webp",
+        "settings": "https://cdn.discordapp.com/attachments/1092376570678747146/1092376622415495268/settings.webp",
+        "contacts": "https://cdn.discordapp.com/attachments/1092376570678747146/1092376620855205998/contacts.webp",
+        "sms": "https://cdn.discordapp.com/attachments/1092376570678747146/1092376622717476905/sms.webp",
+        "gallery": "https://cdn.discordapp.com/attachments/1092376570678747146/1092376621576626206/gallery.webp",
+        "phone": "https://cdn.discordapp.com/attachments/1092376570678747146/1092376622067359794/phone.webp",
+        "facetime": "https://cdn.discordapp.com/attachments/1092376570678747146/1092376621308198912/facetime.webp"
+    },
+    "isAndroid": true,
+    "useGameClock": false,
+    "phone_template": "XXX-XXX",
+    "backgroundURL": "https://i.pinimg.com/564x/2c/c4/4d/2cc44d4288ce06b5f528eab9abae05e2.jpg",
+    "disabledApps": []
+  },
+  "exclusive": {
+    "weazel": {
+      "tags": ["Noticias"],
+      "permission": "Admin"
+    },
+    "casino": {
+      "maxBet": 10000
+    }
+  },
+  "call_mode": "pma-voice",
+  "webhookURL": "https://canary.discord.com/api/webhooks/1105684926466101308/KV7FrXtJYqrJp-UAG7w7yaRmxhlV838sHPYc7cpPSYW0ob2So0KF54a-O2n-jGyoqJfs",
+  "instagram_verify": "Admin",
+  "instagram_accounts": {
+    "*": 1,
+    "Admin": 2
+  },
+  "moderator": "staff",
+  "item": "cellphone",
+    "services": [
+        {
+            "name": "Policia",
+            "number": "190",
+            "permission": "Policia"
+        },
+        {
+            "name": "Paramédico",
+            "number": "192",
+            "permission": "Hospital"
+        },
+        {
+            "name": "Mecânico",
+            "number": "0800 042",
+            "permission": "Mecanica"
+        },
+        {
+            "name": "Taxi",
+            "number": "0800 075",
+            "permission": "Taxi"
+        }
+    ],
+  "base": "creative_rework"
+}
