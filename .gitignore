@@ -1,5 +1,2 @@
-/resources\[ Houses ]
-*.ymf
-*.ymap
-*.ydr
-*.ytd
+/cache
+/resources/[addons]
