@@ -1,1 +1,7 @@
-cache\
+# JetBrains Rider
+*.sln.iml
+/NordestinaS2/cache
+/server/resources/\[addonastro\]
+/server/resources/\[addons\]
+/server/resources/\[roupas-maestria\]
+/server/resources/MapasCDARJ
