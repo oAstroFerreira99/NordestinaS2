@@ -5,10 +5,10 @@ GlobalState["Nitro"] = {}
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- UPDATENITRO
 -----------------------------------------------------------------------------------------------------------------------------------------
-function Street.UpdateNitro(Plate, Fuel)
+function Maestria.UpdateNitro(Plate,Fuel)
 	if GlobalState["Nitro"][Plate] then
 		local Nitro = GlobalState["Nitro"]
 		Nitro[Plate] = Fuel
-		GlobalState:set("Nitro", Nitro, true)
+		GlobalState:set("Nitro",Nitro,true)
 	end
 end

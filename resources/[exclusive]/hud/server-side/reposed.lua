@@ -5,7 +5,7 @@ local Reposed = {}
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- REPOSED
 -----------------------------------------------------------------------------------------------------------------------------------------
-AddEventHandler("Reposed", function(source, Passport, Seconds)
+AddEventHandler("Reposed",function(source,Passport,Seconds)
 	if Reposed[Passport] then
 		if os.time() > Reposed[Passport] then
 			Reposed[Passport] = os.time() + Seconds
@@ -16,12 +16,12 @@ AddEventHandler("Reposed", function(source, Passport, Seconds)
 		Reposed[Passport] = os.time() + Seconds
 	end
 
-	TriggerClientEvent("hud:Reposed", source, Reposed[Passport] - os.time())
+	TriggerClientEvent("hud:Reposed",source,Reposed[Passport] - os.time())
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- REPOSED
 -----------------------------------------------------------------------------------------------------------------------------------------
-exports("Reposed", function(Passport)
+exports("Reposed",function(Passport)
 	local Passport = parseInt(Passport)
 
 	if Reposed[Passport] then
@@ -35,10 +35,10 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- CONNECT
 -----------------------------------------------------------------------------------------------------------------------------------------
-AddEventHandler("Connect", function(Passport, source)
+AddEventHandler("Connect",function(Passport,source)
 	if Reposed[Passport] then
 		if Reposed[Passport] > os.time() then
-			TriggerClientEvent("hud:Reposed", source, Reposed[Passport] - os.time())
+			TriggerClientEvent("hud:Reposed",source,Reposed[Passport] - os.time())
 		end
 	end
 end)
